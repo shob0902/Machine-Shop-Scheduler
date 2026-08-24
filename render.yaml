@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: mirai-machine-shop-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 180
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: DATABASE_URL
+        value: /opt/render/project/src/backend/shop.db
+      - key: FRONTEND_URL
+        sync: false   # set to your deployed Netlify URL after the first deploy
+      - key: DATA_SEED
+        value: "42"
+    healthCheckPath: /api/health

@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  background-color: #f3f4f6;
+  color: #111827;
+  font-size: 16px;
+}
+
+/* Supervisor-first: comfortably large base type, generous tap targets */
+.app-shell {
+  min-height: 100vh;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-base text-gray-900;
+  }
+}

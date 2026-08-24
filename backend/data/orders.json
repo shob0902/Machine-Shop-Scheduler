@@ -1,0 +1,2301 @@
+[
+  {
+    "order_id": "ORD-001",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Housing",
+    "quantity": 2490,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-29",
+    "late_penalty_per_day": 20166.27,
+    "revenue_priority": 8,
+    "routing": [
+      {
+        "operation_id": "OP0001",
+        "order_id": "ORD-001",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 830,
+        "minutes_per_piece": 0.397,
+        "setup_minutes": 25.2
+      },
+      {
+        "operation_id": "OP0002",
+        "order_id": "ORD-001",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 830,
+        "minutes_per_piece": 0.397,
+        "setup_minutes": 25.2
+      },
+      {
+        "operation_id": "OP0003",
+        "order_id": "ORD-001",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 830,
+        "minutes_per_piece": 0.397,
+        "setup_minutes": 25.2
+      },
+      {
+        "operation_id": "OP0004",
+        "order_id": "ORD-001",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 830,
+        "minutes_per_piece": 0.457,
+        "setup_minutes": 22.9
+      },
+      {
+        "operation_id": "OP0005",
+        "order_id": "ORD-001",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 830,
+        "minutes_per_piece": 0.457,
+        "setup_minutes": 22.9
+      },
+      {
+        "operation_id": "OP0006",
+        "order_id": "ORD-001",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 830,
+        "minutes_per_piece": 0.457,
+        "setup_minutes": 22.9
+      },
+      {
+        "operation_id": "OP0007",
+        "order_id": "ORD-001",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1245,
+        "minutes_per_piece": 0.208,
+        "setup_minutes": 25.9
+      },
+      {
+        "operation_id": "OP0008",
+        "order_id": "ORD-001",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1245,
+        "minutes_per_piece": 0.208,
+        "setup_minutes": 25.9
+      },
+      {
+        "operation_id": "OP0009",
+        "order_id": "ORD-001",
+        "sequence": 4,
+        "operation_type": "Deburring",
+        "quantity": 2490,
+        "minutes_per_piece": 0.089,
+        "setup_minutes": 14.4
+      },
+      {
+        "operation_id": "OP0010",
+        "order_id": "ORD-001",
+        "sequence": 5,
+        "operation_type": "Inspection",
+        "quantity": 2490,
+        "minutes_per_piece": 0.098,
+        "setup_minutes": 16.1
+      }
+    ],
+    "inspection_probability_fail": 0.0416,
+    "order_value": 478044.68
+  },
+  {
+    "order_id": "ORD-002",
+    "customer": "Malabar Precision Casting",
+    "customer_tier": "Tier-3",
+    "part_family": "Gear",
+    "quantity": 3016,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-04",
+    "late_penalty_per_day": 2905.71,
+    "revenue_priority": 3,
+    "routing": [
+      {
+        "operation_id": "OP0011",
+        "order_id": "ORD-002",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1006,
+        "minutes_per_piece": 0.38,
+        "setup_minutes": 16.3
+      },
+      {
+        "operation_id": "OP0012",
+        "order_id": "ORD-002",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1005,
+        "minutes_per_piece": 0.38,
+        "setup_minutes": 16.3
+      },
+      {
+        "operation_id": "OP0013",
+        "order_id": "ORD-002",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1005,
+        "minutes_per_piece": 0.38,
+        "setup_minutes": 16.3
+      },
+      {
+        "operation_id": "OP0014",
+        "order_id": "ORD-002",
+        "sequence": 2,
+        "operation_type": "Turning",
+        "quantity": 1006,
+        "minutes_per_piece": 0.386,
+        "setup_minutes": 29.0
+      },
+      {
+        "operation_id": "OP0015",
+        "order_id": "ORD-002",
+        "sequence": 2,
+        "operation_type": "Turning",
+        "quantity": 1005,
+        "minutes_per_piece": 0.386,
+        "setup_minutes": 29.0
+      },
+      {
+        "operation_id": "OP0016",
+        "order_id": "ORD-002",
+        "sequence": 2,
+        "operation_type": "Turning",
+        "quantity": 1005,
+        "minutes_per_piece": 0.386,
+        "setup_minutes": 29.0
+      },
+      {
+        "operation_id": "OP0017",
+        "order_id": "ORD-002",
+        "sequence": 3,
+        "operation_type": "Milling",
+        "quantity": 754,
+        "minutes_per_piece": 0.457,
+        "setup_minutes": 13.8
+      },
+      {
+        "operation_id": "OP0018",
+        "order_id": "ORD-002",
+        "sequence": 3,
+        "operation_type": "Milling",
+        "quantity": 754,
+        "minutes_per_piece": 0.457,
+        "setup_minutes": 13.8
+      },
+      {
+        "operation_id": "OP0019",
+        "order_id": "ORD-002",
+        "sequence": 3,
+        "operation_type": "Milling",
+        "quantity": 754,
+        "minutes_per_piece": 0.457,
+        "setup_minutes": 13.8
+      },
+      {
+        "operation_id": "OP0020",
+        "order_id": "ORD-002",
+        "sequence": 3,
+        "operation_type": "Milling",
+        "quantity": 754,
+        "minutes_per_piece": 0.457,
+        "setup_minutes": 13.8
+      },
+      {
+        "operation_id": "OP0021",
+        "order_id": "ORD-002",
+        "sequence": 4,
+        "operation_type": "Drilling",
+        "quantity": 1508,
+        "minutes_per_piece": 0.253,
+        "setup_minutes": 15.5
+      },
+      {
+        "operation_id": "OP0022",
+        "order_id": "ORD-002",
+        "sequence": 4,
+        "operation_type": "Drilling",
+        "quantity": 1508,
+        "minutes_per_piece": 0.253,
+        "setup_minutes": 15.5
+      },
+      {
+        "operation_id": "OP0023",
+        "order_id": "ORD-002",
+        "sequence": 5,
+        "operation_type": "Grinding",
+        "quantity": 754,
+        "minutes_per_piece": 0.536,
+        "setup_minutes": 25.2
+      },
+      {
+        "operation_id": "OP0024",
+        "order_id": "ORD-002",
+        "sequence": 5,
+        "operation_type": "Grinding",
+        "quantity": 754,
+        "minutes_per_piece": 0.536,
+        "setup_minutes": 25.2
+      },
+      {
+        "operation_id": "OP0025",
+        "order_id": "ORD-002",
+        "sequence": 5,
+        "operation_type": "Grinding",
+        "quantity": 754,
+        "minutes_per_piece": 0.536,
+        "setup_minutes": 25.2
+      },
+      {
+        "operation_id": "OP0026",
+        "order_id": "ORD-002",
+        "sequence": 5,
+        "operation_type": "Grinding",
+        "quantity": 754,
+        "minutes_per_piece": 0.536,
+        "setup_minutes": 25.2
+      },
+      {
+        "operation_id": "OP0027",
+        "order_id": "ORD-002",
+        "sequence": 6,
+        "operation_type": "Inspection",
+        "quantity": 3016,
+        "minutes_per_piece": 0.092,
+        "setup_minutes": 29.6
+      }
+    ],
+    "inspection_probability_fail": 0.0269,
+    "order_value": 176126.5
+  },
+  {
+    "order_id": "ORD-003",
+    "customer": "Deccan Transmission Systems",
+    "customer_tier": "Tier-3",
+    "part_family": "Flange",
+    "quantity": 1669,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-01",
+    "late_penalty_per_day": 1591.03,
+    "revenue_priority": 1,
+    "routing": [
+      {
+        "operation_id": "OP0028",
+        "order_id": "ORD-003",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1669,
+        "minutes_per_piece": 0.232,
+        "setup_minutes": 27.4
+      },
+      {
+        "operation_id": "OP0029",
+        "order_id": "ORD-003",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 835,
+        "minutes_per_piece": 0.397,
+        "setup_minutes": 27.5
+      },
+      {
+        "operation_id": "OP0030",
+        "order_id": "ORD-003",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 834,
+        "minutes_per_piece": 0.397,
+        "setup_minutes": 27.5
+      },
+      {
+        "operation_id": "OP0031",
+        "order_id": "ORD-003",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1669,
+        "minutes_per_piece": 0.223,
+        "setup_minutes": 19.4
+      },
+      {
+        "operation_id": "OP0032",
+        "order_id": "ORD-003",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 1669,
+        "minutes_per_piece": 0.081,
+        "setup_minutes": 13.7
+      }
+    ],
+    "inspection_probability_fail": 0.0409,
+    "order_value": 122173.37
+  },
+  {
+    "order_id": "ORD-004",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Bracket",
+    "quantity": 735,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-25",
+    "due_date": "2026-08-28",
+    "late_penalty_per_day": 23111.42,
+    "revenue_priority": 9,
+    "routing": [
+      {
+        "operation_id": "OP0033",
+        "order_id": "ORD-004",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 735,
+        "minutes_per_piece": 0.417,
+        "setup_minutes": 18.3
+      },
+      {
+        "operation_id": "OP0034",
+        "order_id": "ORD-004",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 735,
+        "minutes_per_piece": 0.227,
+        "setup_minutes": 22.4
+      },
+      {
+        "operation_id": "OP0035",
+        "order_id": "ORD-004",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 735,
+        "minutes_per_piece": 0.104,
+        "setup_minutes": 17.6
+      }
+    ],
+    "inspection_probability_fail": 0.0274,
+    "order_value": 141065.12
+  },
+  {
+    "order_id": "ORD-005",
+    "customer": "Deccan Transmission Systems",
+    "customer_tier": "Tier-3",
+    "part_family": "Gear",
+    "quantity": 2701,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-25",
+    "due_date": "2026-09-02",
+    "late_penalty_per_day": 2029.29,
+    "revenue_priority": 1,
+    "routing": [
+      {
+        "operation_id": "OP0036",
+        "order_id": "ORD-005",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1351,
+        "minutes_per_piece": 0.219,
+        "setup_minutes": 10.1
+      },
+      {
+        "operation_id": "OP0037",
+        "order_id": "ORD-005",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1350,
+        "minutes_per_piece": 0.219,
+        "setup_minutes": 10.1
+      },
+      {
+        "operation_id": "OP0038",
+        "order_id": "ORD-005",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 901,
+        "minutes_per_piece": 0.385,
+        "setup_minutes": 21.9
+      },
+      {
+        "operation_id": "OP0039",
+        "order_id": "ORD-005",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 900,
+        "minutes_per_piece": 0.385,
+        "setup_minutes": 21.9
+      },
+      {
+        "operation_id": "OP0040",
+        "order_id": "ORD-005",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 900,
+        "minutes_per_piece": 0.385,
+        "setup_minutes": 21.9
+      },
+      {
+        "operation_id": "OP0041",
+        "order_id": "ORD-005",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1351,
+        "minutes_per_piece": 0.172,
+        "setup_minutes": 14.6
+      },
+      {
+        "operation_id": "OP0042",
+        "order_id": "ORD-005",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1350,
+        "minutes_per_piece": 0.172,
+        "setup_minutes": 14.6
+      },
+      {
+        "operation_id": "OP0043",
+        "order_id": "ORD-005",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 676,
+        "minutes_per_piece": 0.583,
+        "setup_minutes": 24.1
+      },
+      {
+        "operation_id": "OP0044",
+        "order_id": "ORD-005",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 675,
+        "minutes_per_piece": 0.583,
+        "setup_minutes": 24.1
+      },
+      {
+        "operation_id": "OP0045",
+        "order_id": "ORD-005",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 675,
+        "minutes_per_piece": 0.583,
+        "setup_minutes": 24.1
+      },
+      {
+        "operation_id": "OP0046",
+        "order_id": "ORD-005",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 675,
+        "minutes_per_piece": 0.583,
+        "setup_minutes": 24.1
+      },
+      {
+        "operation_id": "OP0047",
+        "order_id": "ORD-005",
+        "sequence": 5,
+        "operation_type": "Inspection",
+        "quantity": 2701,
+        "minutes_per_piece": 0.082,
+        "setup_minutes": 23.7
+      }
+    ],
+    "inspection_probability_fail": 0.0252,
+    "order_value": 133492.67
+  },
+  {
+    "order_id": "ORD-006",
+    "customer": "Sundaram Fasteners Group",
+    "customer_tier": "Tier-2",
+    "part_family": "Bracket",
+    "quantity": 4661,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-27",
+    "due_date": "2026-09-01",
+    "late_penalty_per_day": 5238.55,
+    "revenue_priority": 6,
+    "routing": [
+      {
+        "operation_id": "OP0048",
+        "order_id": "ORD-006",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 777,
+        "minutes_per_piece": 0.526,
+        "setup_minutes": 18.8
+      },
+      {
+        "operation_id": "OP0049",
+        "order_id": "ORD-006",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 777,
+        "minutes_per_piece": 0.526,
+        "setup_minutes": 18.8
+      },
+      {
+        "operation_id": "OP0050",
+        "order_id": "ORD-006",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 777,
+        "minutes_per_piece": 0.526,
+        "setup_minutes": 18.8
+      },
+      {
+        "operation_id": "OP0051",
+        "order_id": "ORD-006",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 777,
+        "minutes_per_piece": 0.526,
+        "setup_minutes": 18.8
+      },
+      {
+        "operation_id": "OP0052",
+        "order_id": "ORD-006",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 777,
+        "minutes_per_piece": 0.526,
+        "setup_minutes": 18.8
+      },
+      {
+        "operation_id": "OP0053",
+        "order_id": "ORD-006",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 776,
+        "minutes_per_piece": 0.526,
+        "setup_minutes": 18.8
+      },
+      {
+        "operation_id": "OP0054",
+        "order_id": "ORD-006",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1554,
+        "minutes_per_piece": 0.204,
+        "setup_minutes": 16.1
+      },
+      {
+        "operation_id": "OP0055",
+        "order_id": "ORD-006",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1554,
+        "minutes_per_piece": 0.204,
+        "setup_minutes": 16.1
+      },
+      {
+        "operation_id": "OP0056",
+        "order_id": "ORD-006",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1553,
+        "minutes_per_piece": 0.204,
+        "setup_minutes": 16.1
+      },
+      {
+        "operation_id": "OP0057",
+        "order_id": "ORD-006",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 4661,
+        "minutes_per_piece": 0.078,
+        "setup_minutes": 15.4
+      }
+    ],
+    "inspection_probability_fail": 0.0447,
+    "order_value": 669105.02
+  },
+  {
+    "order_id": "ORD-007",
+    "customer": "Malabar Precision Casting",
+    "customer_tier": "Tier-3",
+    "part_family": "Shaft",
+    "quantity": 3739,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-30",
+    "late_penalty_per_day": 1957.85,
+    "revenue_priority": 1,
+    "routing": [
+      {
+        "operation_id": "OP0058",
+        "order_id": "ORD-007",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1247,
+        "minutes_per_piece": 0.267,
+        "setup_minutes": 10.8
+      },
+      {
+        "operation_id": "OP0059",
+        "order_id": "ORD-007",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1246,
+        "minutes_per_piece": 0.267,
+        "setup_minutes": 10.8
+      },
+      {
+        "operation_id": "OP0060",
+        "order_id": "ORD-007",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1246,
+        "minutes_per_piece": 0.267,
+        "setup_minutes": 10.8
+      },
+      {
+        "operation_id": "OP0061",
+        "order_id": "ORD-007",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 624,
+        "minutes_per_piece": 0.603,
+        "setup_minutes": 19.4
+      },
+      {
+        "operation_id": "OP0062",
+        "order_id": "ORD-007",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 623,
+        "minutes_per_piece": 0.603,
+        "setup_minutes": 19.4
+      },
+      {
+        "operation_id": "OP0063",
+        "order_id": "ORD-007",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 623,
+        "minutes_per_piece": 0.603,
+        "setup_minutes": 19.4
+      },
+      {
+        "operation_id": "OP0064",
+        "order_id": "ORD-007",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 623,
+        "minutes_per_piece": 0.603,
+        "setup_minutes": 19.4
+      },
+      {
+        "operation_id": "OP0065",
+        "order_id": "ORD-007",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 623,
+        "minutes_per_piece": 0.603,
+        "setup_minutes": 19.4
+      },
+      {
+        "operation_id": "OP0066",
+        "order_id": "ORD-007",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 623,
+        "minutes_per_piece": 0.603,
+        "setup_minutes": 19.4
+      },
+      {
+        "operation_id": "OP0067",
+        "order_id": "ORD-007",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 3739,
+        "minutes_per_piece": 0.096,
+        "setup_minutes": 28.3
+      }
+    ],
+    "inspection_probability_fail": 0.0402,
+    "order_value": 373804.08
+  },
+  {
+    "order_id": "ORD-008",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Gear",
+    "quantity": 4228,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-30",
+    "late_penalty_per_day": 18210.58,
+    "revenue_priority": 8,
+    "routing": [
+      {
+        "operation_id": "OP0068",
+        "order_id": "ORD-008",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1057,
+        "minutes_per_piece": 0.373,
+        "setup_minutes": 15.8
+      },
+      {
+        "operation_id": "OP0069",
+        "order_id": "ORD-008",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1057,
+        "minutes_per_piece": 0.373,
+        "setup_minutes": 15.8
+      },
+      {
+        "operation_id": "OP0070",
+        "order_id": "ORD-008",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1057,
+        "minutes_per_piece": 0.373,
+        "setup_minutes": 15.8
+      },
+      {
+        "operation_id": "OP0071",
+        "order_id": "ORD-008",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1057,
+        "minutes_per_piece": 0.373,
+        "setup_minutes": 15.8
+      },
+      {
+        "operation_id": "OP0072",
+        "order_id": "ORD-008",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 705,
+        "minutes_per_piece": 0.534,
+        "setup_minutes": 26.3
+      },
+      {
+        "operation_id": "OP0073",
+        "order_id": "ORD-008",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 705,
+        "minutes_per_piece": 0.534,
+        "setup_minutes": 26.3
+      },
+      {
+        "operation_id": "OP0074",
+        "order_id": "ORD-008",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 705,
+        "minutes_per_piece": 0.534,
+        "setup_minutes": 26.3
+      },
+      {
+        "operation_id": "OP0075",
+        "order_id": "ORD-008",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 705,
+        "minutes_per_piece": 0.534,
+        "setup_minutes": 26.3
+      },
+      {
+        "operation_id": "OP0076",
+        "order_id": "ORD-008",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 704,
+        "minutes_per_piece": 0.534,
+        "setup_minutes": 26.3
+      },
+      {
+        "operation_id": "OP0077",
+        "order_id": "ORD-008",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 704,
+        "minutes_per_piece": 0.534,
+        "setup_minutes": 26.3
+      },
+      {
+        "operation_id": "OP0078",
+        "order_id": "ORD-008",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1410,
+        "minutes_per_piece": 0.219,
+        "setup_minutes": 19.1
+      },
+      {
+        "operation_id": "OP0079",
+        "order_id": "ORD-008",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1409,
+        "minutes_per_piece": 0.219,
+        "setup_minutes": 19.1
+      },
+      {
+        "operation_id": "OP0080",
+        "order_id": "ORD-008",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1409,
+        "minutes_per_piece": 0.219,
+        "setup_minutes": 19.1
+      },
+      {
+        "operation_id": "OP0081",
+        "order_id": "ORD-008",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 846,
+        "minutes_per_piece": 0.426,
+        "setup_minutes": 16.5
+      },
+      {
+        "operation_id": "OP0082",
+        "order_id": "ORD-008",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 846,
+        "minutes_per_piece": 0.426,
+        "setup_minutes": 16.5
+      },
+      {
+        "operation_id": "OP0083",
+        "order_id": "ORD-008",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 846,
+        "minutes_per_piece": 0.426,
+        "setup_minutes": 16.5
+      },
+      {
+        "operation_id": "OP0084",
+        "order_id": "ORD-008",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 845,
+        "minutes_per_piece": 0.426,
+        "setup_minutes": 16.5
+      },
+      {
+        "operation_id": "OP0085",
+        "order_id": "ORD-008",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 845,
+        "minutes_per_piece": 0.426,
+        "setup_minutes": 16.5
+      },
+      {
+        "operation_id": "OP0086",
+        "order_id": "ORD-008",
+        "sequence": 5,
+        "operation_type": "Inspection",
+        "quantity": 2114,
+        "minutes_per_piece": 0.118,
+        "setup_minutes": 18.1
+      },
+      {
+        "operation_id": "OP0087",
+        "order_id": "ORD-008",
+        "sequence": 5,
+        "operation_type": "Inspection",
+        "quantity": 2114,
+        "minutes_per_piece": 0.118,
+        "setup_minutes": 18.1
+      }
+    ],
+    "inspection_probability_fail": 0.0299,
+    "order_value": 1268749.37
+  },
+  {
+    "order_id": "ORD-009",
+    "customer": "Continental Gearworks",
+    "customer_tier": "Tier-2",
+    "part_family": "Pin",
+    "quantity": 3585,
+    "release_date": "2026-08-26",
+    "material_available_date": "2026-08-26",
+    "due_date": "2026-09-06",
+    "late_penalty_per_day": 8039.96,
+    "revenue_priority": 5,
+    "routing": [
+      {
+        "operation_id": "OP0088",
+        "order_id": "ORD-009",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1195,
+        "minutes_per_piece": 0.272,
+        "setup_minutes": 27.6
+      },
+      {
+        "operation_id": "OP0089",
+        "order_id": "ORD-009",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1195,
+        "minutes_per_piece": 0.272,
+        "setup_minutes": 27.6
+      },
+      {
+        "operation_id": "OP0090",
+        "order_id": "ORD-009",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1195,
+        "minutes_per_piece": 0.272,
+        "setup_minutes": 27.6
+      },
+      {
+        "operation_id": "OP0091",
+        "order_id": "ORD-009",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1793,
+        "minutes_per_piece": 0.207,
+        "setup_minutes": 10.6
+      },
+      {
+        "operation_id": "OP0092",
+        "order_id": "ORD-009",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1792,
+        "minutes_per_piece": 0.207,
+        "setup_minutes": 10.6
+      },
+      {
+        "operation_id": "OP0093",
+        "order_id": "ORD-009",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 717,
+        "minutes_per_piece": 0.552,
+        "setup_minutes": 26.0
+      },
+      {
+        "operation_id": "OP0094",
+        "order_id": "ORD-009",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 717,
+        "minutes_per_piece": 0.552,
+        "setup_minutes": 26.0
+      },
+      {
+        "operation_id": "OP0095",
+        "order_id": "ORD-009",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 717,
+        "minutes_per_piece": 0.552,
+        "setup_minutes": 26.0
+      },
+      {
+        "operation_id": "OP0096",
+        "order_id": "ORD-009",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 717,
+        "minutes_per_piece": 0.552,
+        "setup_minutes": 26.0
+      },
+      {
+        "operation_id": "OP0097",
+        "order_id": "ORD-009",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 717,
+        "minutes_per_piece": 0.552,
+        "setup_minutes": 26.0
+      },
+      {
+        "operation_id": "OP0098",
+        "order_id": "ORD-009",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 3585,
+        "minutes_per_piece": 0.1,
+        "setup_minutes": 16.2
+      }
+    ],
+    "inspection_probability_fail": 0.0239,
+    "order_value": 408815.7
+  },
+  {
+    "order_id": "ORD-010",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Bracket",
+    "quantity": 2040,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-30",
+    "late_penalty_per_day": 21477.1,
+    "revenue_priority": 8,
+    "routing": [
+      {
+        "operation_id": "OP0099",
+        "order_id": "ORD-010",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 1020,
+        "minutes_per_piece": 0.403,
+        "setup_minutes": 15.5
+      },
+      {
+        "operation_id": "OP0100",
+        "order_id": "ORD-010",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 1020,
+        "minutes_per_piece": 0.403,
+        "setup_minutes": 15.5
+      },
+      {
+        "operation_id": "OP0101",
+        "order_id": "ORD-010",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1020,
+        "minutes_per_piece": 0.27,
+        "setup_minutes": 29.6
+      },
+      {
+        "operation_id": "OP0102",
+        "order_id": "ORD-010",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1020,
+        "minutes_per_piece": 0.27,
+        "setup_minutes": 29.6
+      },
+      {
+        "operation_id": "OP0103",
+        "order_id": "ORD-010",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 2040,
+        "minutes_per_piece": 0.067,
+        "setup_minutes": 21.0
+      }
+    ],
+    "inspection_probability_fail": 0.0415,
+    "order_value": 509536.04
+  },
+  {
+    "order_id": "ORD-011",
+    "customer": "Kaveri Engineering Works",
+    "customer_tier": "Tier-3",
+    "part_family": "Pin",
+    "quantity": 771,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-05",
+    "late_penalty_per_day": 3368.5,
+    "revenue_priority": 3,
+    "routing": [
+      {
+        "operation_id": "OP0104",
+        "order_id": "ORD-011",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 771,
+        "minutes_per_piece": 0.275,
+        "setup_minutes": 21.7
+      },
+      {
+        "operation_id": "OP0105",
+        "order_id": "ORD-011",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 386,
+        "minutes_per_piece": 0.7,
+        "setup_minutes": 19.8
+      },
+      {
+        "operation_id": "OP0106",
+        "order_id": "ORD-011",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 385,
+        "minutes_per_piece": 0.7,
+        "setup_minutes": 19.8
+      },
+      {
+        "operation_id": "OP0107",
+        "order_id": "ORD-011",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 771,
+        "minutes_per_piece": 0.06,
+        "setup_minutes": 20.8
+      }
+    ],
+    "inspection_probability_fail": 0.0285,
+    "order_value": 68798.62
+  },
+  {
+    "order_id": "ORD-012",
+    "customer": "Kaveri Engineering Works",
+    "customer_tier": "Tier-3",
+    "part_family": "Gear",
+    "quantity": 3930,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-02",
+    "late_penalty_per_day": 1967.12,
+    "revenue_priority": 4,
+    "routing": [
+      {
+        "operation_id": "OP0108",
+        "order_id": "ORD-012",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 983,
+        "minutes_per_piece": 0.376,
+        "setup_minutes": 26.2
+      },
+      {
+        "operation_id": "OP0109",
+        "order_id": "ORD-012",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 983,
+        "minutes_per_piece": 0.376,
+        "setup_minutes": 26.2
+      },
+      {
+        "operation_id": "OP0110",
+        "order_id": "ORD-012",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 982,
+        "minutes_per_piece": 0.376,
+        "setup_minutes": 26.2
+      },
+      {
+        "operation_id": "OP0111",
+        "order_id": "ORD-012",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 982,
+        "minutes_per_piece": 0.376,
+        "setup_minutes": 26.2
+      },
+      {
+        "operation_id": "OP0112",
+        "order_id": "ORD-012",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 983,
+        "minutes_per_piece": 0.366,
+        "setup_minutes": 23.3
+      },
+      {
+        "operation_id": "OP0113",
+        "order_id": "ORD-012",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 983,
+        "minutes_per_piece": 0.366,
+        "setup_minutes": 23.3
+      },
+      {
+        "operation_id": "OP0114",
+        "order_id": "ORD-012",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 982,
+        "minutes_per_piece": 0.366,
+        "setup_minutes": 23.3
+      },
+      {
+        "operation_id": "OP0115",
+        "order_id": "ORD-012",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 982,
+        "minutes_per_piece": 0.366,
+        "setup_minutes": 23.3
+      },
+      {
+        "operation_id": "OP0116",
+        "order_id": "ORD-012",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1310,
+        "minutes_per_piece": 0.268,
+        "setup_minutes": 29.6
+      },
+      {
+        "operation_id": "OP0117",
+        "order_id": "ORD-012",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1310,
+        "minutes_per_piece": 0.268,
+        "setup_minutes": 29.6
+      },
+      {
+        "operation_id": "OP0118",
+        "order_id": "ORD-012",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 1310,
+        "minutes_per_piece": 0.268,
+        "setup_minutes": 29.6
+      },
+      {
+        "operation_id": "OP0119",
+        "order_id": "ORD-012",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 786,
+        "minutes_per_piece": 0.498,
+        "setup_minutes": 10.7
+      },
+      {
+        "operation_id": "OP0120",
+        "order_id": "ORD-012",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 786,
+        "minutes_per_piece": 0.498,
+        "setup_minutes": 10.7
+      },
+      {
+        "operation_id": "OP0121",
+        "order_id": "ORD-012",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 786,
+        "minutes_per_piece": 0.498,
+        "setup_minutes": 10.7
+      },
+      {
+        "operation_id": "OP0122",
+        "order_id": "ORD-012",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 786,
+        "minutes_per_piece": 0.498,
+        "setup_minutes": 10.7
+      },
+      {
+        "operation_id": "OP0123",
+        "order_id": "ORD-012",
+        "sequence": 4,
+        "operation_type": "Grinding",
+        "quantity": 786,
+        "minutes_per_piece": 0.498,
+        "setup_minutes": 10.7
+      },
+      {
+        "operation_id": "OP0124",
+        "order_id": "ORD-012",
+        "sequence": 5,
+        "operation_type": "Inspection",
+        "quantity": 3930,
+        "minutes_per_piece": 0.085,
+        "setup_minutes": 21.8
+      }
+    ],
+    "inspection_probability_fail": 0.0423,
+    "order_value": 167492.03
+  },
+  {
+    "order_id": "ORD-013",
+    "customer": "Malabar Precision Casting",
+    "customer_tier": "Tier-3",
+    "part_family": "Shaft",
+    "quantity": 325,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-01",
+    "late_penalty_per_day": 2438.98,
+    "revenue_priority": 3,
+    "routing": [
+      {
+        "operation_id": "OP0125",
+        "order_id": "ORD-013",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 325,
+        "minutes_per_piece": 0.362,
+        "setup_minutes": 27.0
+      },
+      {
+        "operation_id": "OP0126",
+        "order_id": "ORD-013",
+        "sequence": 2,
+        "operation_type": "Turning",
+        "quantity": 325,
+        "minutes_per_piece": 0.413,
+        "setup_minutes": 27.2
+      },
+      {
+        "operation_id": "OP0127",
+        "order_id": "ORD-013",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 325,
+        "minutes_per_piece": 0.452,
+        "setup_minutes": 16.3
+      },
+      {
+        "operation_id": "OP0128",
+        "order_id": "ORD-013",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 325,
+        "minutes_per_piece": 0.1,
+        "setup_minutes": 25.2
+      }
+    ],
+    "inspection_probability_fail": 0.0408,
+    "order_value": 19601.94
+  },
+  {
+    "order_id": "ORD-014",
+    "customer": "Continental Gearworks",
+    "customer_tier": "Tier-2",
+    "part_family": "Gear",
+    "quantity": 2123,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-02",
+    "late_penalty_per_day": 6735.89,
+    "revenue_priority": 4,
+    "routing": [
+      {
+        "operation_id": "OP0129",
+        "order_id": "ORD-014",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1062,
+        "minutes_per_piece": 0.225,
+        "setup_minutes": 13.3
+      },
+      {
+        "operation_id": "OP0130",
+        "order_id": "ORD-014",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1061,
+        "minutes_per_piece": 0.225,
+        "setup_minutes": 13.3
+      },
+      {
+        "operation_id": "OP0131",
+        "order_id": "ORD-014",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 1062,
+        "minutes_per_piece": 0.34,
+        "setup_minutes": 10.6
+      },
+      {
+        "operation_id": "OP0132",
+        "order_id": "ORD-014",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 1061,
+        "minutes_per_piece": 0.34,
+        "setup_minutes": 10.6
+      },
+      {
+        "operation_id": "OP0133",
+        "order_id": "ORD-014",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 708,
+        "minutes_per_piece": 0.43,
+        "setup_minutes": 11.1
+      },
+      {
+        "operation_id": "OP0134",
+        "order_id": "ORD-014",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 708,
+        "minutes_per_piece": 0.43,
+        "setup_minutes": 11.1
+      },
+      {
+        "operation_id": "OP0135",
+        "order_id": "ORD-014",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 707,
+        "minutes_per_piece": 0.43,
+        "setup_minutes": 11.1
+      },
+      {
+        "operation_id": "OP0136",
+        "order_id": "ORD-014",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 2123,
+        "minutes_per_piece": 0.075,
+        "setup_minutes": 18.6
+      }
+    ],
+    "inspection_probability_fail": 0.0411,
+    "order_value": 336353.84
+  },
+  {
+    "order_id": "ORD-015",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Bracket",
+    "quantity": 1592,
+    "release_date": "2026-08-26",
+    "material_available_date": "2026-08-26",
+    "due_date": "2026-08-31",
+    "late_penalty_per_day": 19976.67,
+    "revenue_priority": 10,
+    "routing": [
+      {
+        "operation_id": "OP0137",
+        "order_id": "ORD-015",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 796,
+        "minutes_per_piece": 0.326,
+        "setup_minutes": 15.1
+      },
+      {
+        "operation_id": "OP0138",
+        "order_id": "ORD-015",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 796,
+        "minutes_per_piece": 0.326,
+        "setup_minutes": 15.1
+      },
+      {
+        "operation_id": "OP0139",
+        "order_id": "ORD-015",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1592,
+        "minutes_per_piece": 0.122,
+        "setup_minutes": 26.1
+      },
+      {
+        "operation_id": "OP0140",
+        "order_id": "ORD-015",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 1592,
+        "minutes_per_piece": 0.113,
+        "setup_minutes": 23.6
+      }
+    ],
+    "inspection_probability_fail": 0.0338,
+    "order_value": 318458.08
+  },
+  {
+    "order_id": "ORD-016",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Bracket",
+    "quantity": 2650,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-29",
+    "late_penalty_per_day": 23453.04,
+    "revenue_priority": 8,
+    "routing": [
+      {
+        "operation_id": "OP0141",
+        "order_id": "ORD-016",
+        "sequence": 1,
+        "operation_type": "Drilling",
+        "quantity": 2650,
+        "minutes_per_piece": 0.139,
+        "setup_minutes": 17.6
+      },
+      {
+        "operation_id": "OP0142",
+        "order_id": "ORD-016",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 884,
+        "minutes_per_piece": 0.358,
+        "setup_minutes": 15.9
+      },
+      {
+        "operation_id": "OP0143",
+        "order_id": "ORD-016",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 883,
+        "minutes_per_piece": 0.358,
+        "setup_minutes": 15.9
+      },
+      {
+        "operation_id": "OP0144",
+        "order_id": "ORD-016",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 883,
+        "minutes_per_piece": 0.358,
+        "setup_minutes": 15.9
+      },
+      {
+        "operation_id": "OP0145",
+        "order_id": "ORD-016",
+        "sequence": 3,
+        "operation_type": "Deburring",
+        "quantity": 2650,
+        "minutes_per_piece": 0.15,
+        "setup_minutes": 10.4
+      },
+      {
+        "operation_id": "OP0146",
+        "order_id": "ORD-016",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 2650,
+        "minutes_per_piece": 0.108,
+        "setup_minutes": 17.9
+      }
+    ],
+    "inspection_probability_fail": 0.0456,
+    "order_value": 847767.59
+  },
+  {
+    "order_id": "ORD-017",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Pin",
+    "quantity": 4269,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-02",
+    "late_penalty_per_day": 21070.65,
+    "revenue_priority": 9,
+    "routing": [
+      {
+        "operation_id": "OP0147",
+        "order_id": "ORD-017",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1423,
+        "minutes_per_piece": 0.263,
+        "setup_minutes": 25.1
+      },
+      {
+        "operation_id": "OP0148",
+        "order_id": "ORD-017",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1423,
+        "minutes_per_piece": 0.263,
+        "setup_minutes": 25.1
+      },
+      {
+        "operation_id": "OP0149",
+        "order_id": "ORD-017",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 1423,
+        "minutes_per_piece": 0.263,
+        "setup_minutes": 25.1
+      },
+      {
+        "operation_id": "OP0150",
+        "order_id": "ORD-017",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 610,
+        "minutes_per_piece": 0.607,
+        "setup_minutes": 23.6
+      },
+      {
+        "operation_id": "OP0151",
+        "order_id": "ORD-017",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 610,
+        "minutes_per_piece": 0.607,
+        "setup_minutes": 23.6
+      },
+      {
+        "operation_id": "OP0152",
+        "order_id": "ORD-017",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 610,
+        "minutes_per_piece": 0.607,
+        "setup_minutes": 23.6
+      },
+      {
+        "operation_id": "OP0153",
+        "order_id": "ORD-017",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 610,
+        "minutes_per_piece": 0.607,
+        "setup_minutes": 23.6
+      },
+      {
+        "operation_id": "OP0154",
+        "order_id": "ORD-017",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 610,
+        "minutes_per_piece": 0.607,
+        "setup_minutes": 23.6
+      },
+      {
+        "operation_id": "OP0155",
+        "order_id": "ORD-017",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 610,
+        "minutes_per_piece": 0.607,
+        "setup_minutes": 23.6
+      },
+      {
+        "operation_id": "OP0156",
+        "order_id": "ORD-017",
+        "sequence": 2,
+        "operation_type": "Grinding",
+        "quantity": 609,
+        "minutes_per_piece": 0.607,
+        "setup_minutes": 23.6
+      },
+      {
+        "operation_id": "OP0157",
+        "order_id": "ORD-017",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 4269,
+        "minutes_per_piece": 0.06,
+        "setup_minutes": 11.9
+      }
+    ],
+    "inspection_probability_fail": 0.0257,
+    "order_value": 899310.25
+  },
+  {
+    "order_id": "ORD-018",
+    "customer": "Continental Gearworks",
+    "customer_tier": "Tier-2",
+    "part_family": "Housing",
+    "quantity": 473,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-31",
+    "late_penalty_per_day": 6306.88,
+    "revenue_priority": 7,
+    "routing": [
+      {
+        "operation_id": "OP0158",
+        "order_id": "ORD-018",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 473,
+        "minutes_per_piece": 0.412,
+        "setup_minutes": 29.4
+      },
+      {
+        "operation_id": "OP0159",
+        "order_id": "ORD-018",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 473,
+        "minutes_per_piece": 0.409,
+        "setup_minutes": 28.3
+      },
+      {
+        "operation_id": "OP0160",
+        "order_id": "ORD-018",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 473,
+        "minutes_per_piece": 0.269,
+        "setup_minutes": 15.1
+      },
+      {
+        "operation_id": "OP0161",
+        "order_id": "ORD-018",
+        "sequence": 4,
+        "operation_type": "Deburring",
+        "quantity": 473,
+        "minutes_per_piece": 0.162,
+        "setup_minutes": 19.6
+      },
+      {
+        "operation_id": "OP0162",
+        "order_id": "ORD-018",
+        "sequence": 5,
+        "operation_type": "Inspection",
+        "quantity": 473,
+        "minutes_per_piece": 0.106,
+        "setup_minutes": 24.9
+      }
+    ],
+    "inspection_probability_fail": 0.024,
+    "order_value": 50047.0
+  },
+  {
+    "order_id": "ORD-019",
+    "customer": "Bharat Motion Components",
+    "customer_tier": "Tier-2",
+    "part_family": "Bracket",
+    "quantity": 1353,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-05",
+    "late_penalty_per_day": 5361.21,
+    "revenue_priority": 7,
+    "routing": [
+      {
+        "operation_id": "OP0163",
+        "order_id": "ORD-019",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 677,
+        "minutes_per_piece": 0.386,
+        "setup_minutes": 23.5
+      },
+      {
+        "operation_id": "OP0164",
+        "order_id": "ORD-019",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 676,
+        "minutes_per_piece": 0.386,
+        "setup_minutes": 23.5
+      },
+      {
+        "operation_id": "OP0165",
+        "order_id": "ORD-019",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1353,
+        "minutes_per_piece": 0.241,
+        "setup_minutes": 21.7
+      },
+      {
+        "operation_id": "OP0166",
+        "order_id": "ORD-019",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 1353,
+        "minutes_per_piece": 0.108,
+        "setup_minutes": 28.8
+      }
+    ],
+    "inspection_probability_fail": 0.0361,
+    "order_value": 123464.87
+  },
+  {
+    "order_id": "ORD-020",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Flange",
+    "quantity": 405,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-29",
+    "late_penalty_per_day": 21476.52,
+    "revenue_priority": 10,
+    "routing": [
+      {
+        "operation_id": "OP0167",
+        "order_id": "ORD-020",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 405,
+        "minutes_per_piece": 0.276,
+        "setup_minutes": 18.2
+      },
+      {
+        "operation_id": "OP0168",
+        "order_id": "ORD-020",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 405,
+        "minutes_per_piece": 0.292,
+        "setup_minutes": 28.9
+      },
+      {
+        "operation_id": "OP0169",
+        "order_id": "ORD-020",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 405,
+        "minutes_per_piece": 0.175,
+        "setup_minutes": 19.9
+      },
+      {
+        "operation_id": "OP0170",
+        "order_id": "ORD-020",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 405,
+        "minutes_per_piece": 0.057,
+        "setup_minutes": 27.7
+      }
+    ],
+    "inspection_probability_fail": 0.0473,
+    "order_value": 119612.6
+  },
+  {
+    "order_id": "ORD-021",
+    "customer": "Apex AutoDrive Pvt Ltd",
+    "customer_tier": "Tier-1",
+    "part_family": "Bracket",
+    "quantity": 4625,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-28",
+    "late_penalty_per_day": 21549.22,
+    "revenue_priority": 9,
+    "routing": [
+      {
+        "operation_id": "OP0171",
+        "order_id": "ORD-021",
+        "sequence": 1,
+        "operation_type": "Drilling",
+        "quantity": 2313,
+        "minutes_per_piece": 0.17,
+        "setup_minutes": 23.8
+      },
+      {
+        "operation_id": "OP0172",
+        "order_id": "ORD-021",
+        "sequence": 1,
+        "operation_type": "Drilling",
+        "quantity": 2312,
+        "minutes_per_piece": 0.17,
+        "setup_minutes": 23.8
+      },
+      {
+        "operation_id": "OP0173",
+        "order_id": "ORD-021",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 1157,
+        "minutes_per_piece": 0.315,
+        "setup_minutes": 18.9
+      },
+      {
+        "operation_id": "OP0174",
+        "order_id": "ORD-021",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 1156,
+        "minutes_per_piece": 0.315,
+        "setup_minutes": 18.9
+      },
+      {
+        "operation_id": "OP0175",
+        "order_id": "ORD-021",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 1156,
+        "minutes_per_piece": 0.315,
+        "setup_minutes": 18.9
+      },
+      {
+        "operation_id": "OP0176",
+        "order_id": "ORD-021",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 1156,
+        "minutes_per_piece": 0.315,
+        "setup_minutes": 18.9
+      },
+      {
+        "operation_id": "OP0177",
+        "order_id": "ORD-021",
+        "sequence": 3,
+        "operation_type": "Deburring",
+        "quantity": 2313,
+        "minutes_per_piece": 0.104,
+        "setup_minutes": 17.3
+      },
+      {
+        "operation_id": "OP0178",
+        "order_id": "ORD-021",
+        "sequence": 3,
+        "operation_type": "Deburring",
+        "quantity": 2312,
+        "minutes_per_piece": 0.104,
+        "setup_minutes": 17.3
+      },
+      {
+        "operation_id": "OP0179",
+        "order_id": "ORD-021",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 2313,
+        "minutes_per_piece": 0.119,
+        "setup_minutes": 17.3
+      },
+      {
+        "operation_id": "OP0180",
+        "order_id": "ORD-021",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 2312,
+        "minutes_per_piece": 0.119,
+        "setup_minutes": 17.3
+      }
+    ],
+    "inspection_probability_fail": 0.0482,
+    "order_value": 1231134.81
+  },
+  {
+    "order_id": "ORD-022",
+    "customer": "Nilgiri Auto Parts",
+    "customer_tier": "Tier-3",
+    "part_family": "Shaft",
+    "quantity": 2460,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-06",
+    "late_penalty_per_day": 2825.54,
+    "revenue_priority": 1,
+    "routing": [
+      {
+        "operation_id": "OP0181",
+        "order_id": "ORD-022",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 820,
+        "minutes_per_piece": 0.447,
+        "setup_minutes": 25.7
+      },
+      {
+        "operation_id": "OP0182",
+        "order_id": "ORD-022",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 820,
+        "minutes_per_piece": 0.447,
+        "setup_minutes": 25.7
+      },
+      {
+        "operation_id": "OP0183",
+        "order_id": "ORD-022",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 820,
+        "minutes_per_piece": 0.447,
+        "setup_minutes": 25.7
+      },
+      {
+        "operation_id": "OP0184",
+        "order_id": "ORD-022",
+        "sequence": 2,
+        "operation_type": "Turning",
+        "quantity": 1230,
+        "minutes_per_piece": 0.251,
+        "setup_minutes": 26.6
+      },
+      {
+        "operation_id": "OP0185",
+        "order_id": "ORD-022",
+        "sequence": 2,
+        "operation_type": "Turning",
+        "quantity": 1230,
+        "minutes_per_piece": 0.251,
+        "setup_minutes": 26.6
+      },
+      {
+        "operation_id": "OP0186",
+        "order_id": "ORD-022",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 820,
+        "minutes_per_piece": 0.522,
+        "setup_minutes": 21.7
+      },
+      {
+        "operation_id": "OP0187",
+        "order_id": "ORD-022",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 820,
+        "minutes_per_piece": 0.522,
+        "setup_minutes": 21.7
+      },
+      {
+        "operation_id": "OP0188",
+        "order_id": "ORD-022",
+        "sequence": 3,
+        "operation_type": "Grinding",
+        "quantity": 820,
+        "minutes_per_piece": 0.522,
+        "setup_minutes": 21.7
+      },
+      {
+        "operation_id": "OP0189",
+        "order_id": "ORD-022",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 2460,
+        "minutes_per_piece": 0.107,
+        "setup_minutes": 14.7
+      }
+    ],
+    "inspection_probability_fail": 0.03,
+    "order_value": 105865.39
+  },
+  {
+    "order_id": "ORD-023",
+    "customer": "Continental Gearworks",
+    "customer_tier": "Tier-2",
+    "part_family": "Housing",
+    "quantity": 1264,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-08-31",
+    "late_penalty_per_day": 5527.21,
+    "revenue_priority": 6,
+    "routing": [
+      {
+        "operation_id": "OP0190",
+        "order_id": "ORD-023",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 632,
+        "minutes_per_piece": 0.347,
+        "setup_minutes": 13.5
+      },
+      {
+        "operation_id": "OP0191",
+        "order_id": "ORD-023",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 632,
+        "minutes_per_piece": 0.347,
+        "setup_minutes": 13.5
+      },
+      {
+        "operation_id": "OP0192",
+        "order_id": "ORD-023",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 1264,
+        "minutes_per_piece": 0.129,
+        "setup_minutes": 24.8
+      },
+      {
+        "operation_id": "OP0193",
+        "order_id": "ORD-023",
+        "sequence": 3,
+        "operation_type": "Deburring",
+        "quantity": 1264,
+        "minutes_per_piece": 0.133,
+        "setup_minutes": 24.9
+      },
+      {
+        "operation_id": "OP0194",
+        "order_id": "ORD-023",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 1264,
+        "minutes_per_piece": 0.083,
+        "setup_minutes": 25.6
+      }
+    ],
+    "inspection_probability_fail": 0.0271,
+    "order_value": 203628.66
+  },
+  {
+    "order_id": "ORD-024",
+    "customer": "Bharat Motion Components",
+    "customer_tier": "Tier-2",
+    "part_family": "Bracket",
+    "quantity": 555,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-07",
+    "late_penalty_per_day": 6832.17,
+    "revenue_priority": 4,
+    "routing": [
+      {
+        "operation_id": "OP0195",
+        "order_id": "ORD-024",
+        "sequence": 1,
+        "operation_type": "Milling",
+        "quantity": 555,
+        "minutes_per_piece": 0.37,
+        "setup_minutes": 23.7
+      },
+      {
+        "operation_id": "OP0196",
+        "order_id": "ORD-024",
+        "sequence": 2,
+        "operation_type": "Drilling",
+        "quantity": 555,
+        "minutes_per_piece": 0.208,
+        "setup_minutes": 28.2
+      },
+      {
+        "operation_id": "OP0197",
+        "order_id": "ORD-024",
+        "sequence": 3,
+        "operation_type": "Inspection",
+        "quantity": 555,
+        "minutes_per_piece": 0.055,
+        "setup_minutes": 11.6
+      }
+    ],
+    "inspection_probability_fail": 0.0344,
+    "order_value": 52988.23
+  },
+  {
+    "order_id": "ORD-025",
+    "customer": "Bharat Motion Components",
+    "customer_tier": "Tier-2",
+    "part_family": "Flange",
+    "quantity": 4995,
+    "release_date": "2026-08-24",
+    "material_available_date": "2026-08-24",
+    "due_date": "2026-09-07",
+    "late_penalty_per_day": 6814.86,
+    "revenue_priority": 7,
+    "routing": [
+      {
+        "operation_id": "OP0198",
+        "order_id": "ORD-025",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 999,
+        "minutes_per_piece": 0.413,
+        "setup_minutes": 23.0
+      },
+      {
+        "operation_id": "OP0199",
+        "order_id": "ORD-025",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 999,
+        "minutes_per_piece": 0.413,
+        "setup_minutes": 23.0
+      },
+      {
+        "operation_id": "OP0200",
+        "order_id": "ORD-025",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 999,
+        "minutes_per_piece": 0.413,
+        "setup_minutes": 23.0
+      },
+      {
+        "operation_id": "OP0201",
+        "order_id": "ORD-025",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 999,
+        "minutes_per_piece": 0.413,
+        "setup_minutes": 23.0
+      },
+      {
+        "operation_id": "OP0202",
+        "order_id": "ORD-025",
+        "sequence": 1,
+        "operation_type": "Turning",
+        "quantity": 999,
+        "minutes_per_piece": 0.413,
+        "setup_minutes": 23.0
+      },
+      {
+        "operation_id": "OP0203",
+        "order_id": "ORD-025",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 833,
+        "minutes_per_piece": 0.481,
+        "setup_minutes": 24.4
+      },
+      {
+        "operation_id": "OP0204",
+        "order_id": "ORD-025",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 833,
+        "minutes_per_piece": 0.481,
+        "setup_minutes": 24.4
+      },
+      {
+        "operation_id": "OP0205",
+        "order_id": "ORD-025",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 833,
+        "minutes_per_piece": 0.481,
+        "setup_minutes": 24.4
+      },
+      {
+        "operation_id": "OP0206",
+        "order_id": "ORD-025",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 832,
+        "minutes_per_piece": 0.481,
+        "setup_minutes": 24.4
+      },
+      {
+        "operation_id": "OP0207",
+        "order_id": "ORD-025",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 832,
+        "minutes_per_piece": 0.481,
+        "setup_minutes": 24.4
+      },
+      {
+        "operation_id": "OP0208",
+        "order_id": "ORD-025",
+        "sequence": 2,
+        "operation_type": "Milling",
+        "quantity": 832,
+        "minutes_per_piece": 0.481,
+        "setup_minutes": 24.4
+      },
+      {
+        "operation_id": "OP0209",
+        "order_id": "ORD-025",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 2498,
+        "minutes_per_piece": 0.159,
+        "setup_minutes": 19.0
+      },
+      {
+        "operation_id": "OP0210",
+        "order_id": "ORD-025",
+        "sequence": 3,
+        "operation_type": "Drilling",
+        "quantity": 2497,
+        "minutes_per_piece": 0.159,
+        "setup_minutes": 19.0
+      },
+      {
+        "operation_id": "OP0211",
+        "order_id": "ORD-025",
+        "sequence": 4,
+        "operation_type": "Inspection",
+        "quantity": 4995,
+        "minutes_per_piece": 0.066,
+        "setup_minutes": 16.8
+      }
+    ],
+    "inspection_probability_fail": 0.0411,
+    "order_value": 494135.68
+  }
+]

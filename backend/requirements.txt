@@ -1,0 +1,9 @@
+Flask==3.0.3
+Flask-CORS==4.0.1
+pydantic==2.8.2
+pandas==2.2.2
+numpy==1.26.4
+ortools==9.10.4067
+gunicorn==22.0.0
+python-dotenv==1.0.1
+pytest==8.2.2

@@ -1,0 +1,1353 @@
+[
+  {
+    "operator_id": "OP-001",
+    "name": "Ravi Shetty",
+    "skills": [
+      "Grinding",
+      "Inspection"
+    ],
+    "qualified_machines": [
+      "GRIND-01",
+      "GRIND-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 231.15,
+    "overtime_rate": 346.73,
+    "roster": {
+      "0": [
+        1
+      ],
+      "2": [
+        1
+      ],
+      "3": [
+        1
+      ],
+      "4": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "7": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "10": [
+        2
+      ],
+      "11": [
+        1
+      ],
+      "13": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-002",
+    "name": "Vijay Reddy",
+    "skills": [
+      "Grinding",
+      "Inspection"
+    ],
+    "qualified_machines": [
+      "GRIND-01",
+      "GRIND-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 199.59,
+    "overtime_rate": 299.38,
+    "roster": {
+      "0": [
+        1
+      ],
+      "1": [
+        1
+      ],
+      "4": [
+        1,
+        2
+      ],
+      "5": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "7": [
+        1,
+        2
+      ],
+      "8": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        1
+      ],
+      "13": [
+        1
+      ],
+      "10": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-003",
+    "name": "Santosh Reddy",
+    "skills": [
+      "Grinding",
+      "Inspection"
+    ],
+    "qualified_machines": [
+      "GRIND-01",
+      "GRIND-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 234.14,
+    "overtime_rate": 351.21,
+    "roster": {
+      "0": [
+        2
+      ],
+      "1": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "5": [
+        2
+      ],
+      "7": [
+        1
+      ],
+      "8": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "12": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "11": [
+        2
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-004",
+    "name": "Suresh Kumar",
+    "skills": [
+      "Turning"
+    ],
+    "qualified_machines": [
+      "LATHE-01",
+      "LATHE-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 227.24,
+    "overtime_rate": 340.86,
+    "roster": {
+      "0": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "4": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "11": [
+        1
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-005",
+    "name": "Ganesh Gowda",
+    "skills": [
+      "Turning"
+    ],
+    "qualified_machines": [
+      "LATHE-03",
+      "LATHE-04"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 187.5,
+    "overtime_rate": 281.25,
+    "roster": {
+      "0": [
+        1
+      ],
+      "1": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "4": [
+        2
+      ],
+      "5": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "8": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "11": [
+        2
+      ],
+      "12": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-006",
+    "name": "Santosh Naidu",
+    "skills": [
+      "Turning"
+    ],
+    "qualified_machines": [
+      "LATHE-01",
+      "LATHE-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 228.16,
+    "overtime_rate": 342.24,
+    "roster": {
+      "0": [
+        1
+      ],
+      "1": [
+        1
+      ],
+      "3": [
+        1
+      ],
+      "4": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "7": [
+        2
+      ],
+      "8": [
+        1
+      ],
+      "10": [
+        2
+      ],
+      "11": [
+        1
+      ],
+      "13": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-007",
+    "name": "Yogesh Gowda",
+    "skills": [
+      "Turning"
+    ],
+    "qualified_machines": [
+      "LATHE-03",
+      "LATHE-04"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 237.28,
+    "overtime_rate": 355.92,
+    "roster": {
+      "0": [
+        2
+      ],
+      "1": [
+        1
+      ],
+      "3": [
+        1
+      ],
+      "4": [
+        2
+      ],
+      "5": [
+        1
+      ],
+      "7": [
+        2
+      ],
+      "8": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        2
+      ],
+      "12": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-008",
+    "name": "Kiran Menon",
+    "skills": [
+      "Turning"
+    ],
+    "qualified_machines": [
+      "LATHE-01",
+      "LATHE-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 213.56,
+    "overtime_rate": 320.34,
+    "roster": {
+      "0": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "5": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "12": [
+        2
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-009",
+    "name": "Murugan Kumar",
+    "skills": [
+      "Turning"
+    ],
+    "qualified_machines": [
+      "LATHE-03",
+      "LATHE-04"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 202.26,
+    "overtime_rate": 303.39,
+    "roster": {
+      "0": [
+        1
+      ],
+      "1": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "5": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "7": [
+        2
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        2
+      ],
+      "12": [
+        2
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-010",
+    "name": "Anand Pillai",
+    "skills": [
+      "Milling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "MILL-01",
+      "MILL-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 240.7,
+    "overtime_rate": 361.05,
+    "roster": {
+      "1": [
+        1
+      ],
+      "3": [
+        1
+      ],
+      "4": [
+        1
+      ],
+      "5": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "8": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        1
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-011",
+    "name": "Vijay Naidu",
+    "skills": [
+      "Milling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "MILL-02",
+      "MILL-03"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 207.22,
+    "overtime_rate": 310.83,
+    "roster": {
+      "0": [
+        2
+      ],
+      "1": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "4": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        1
+      ],
+      "8": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "11": [
+        2
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-012",
+    "name": "Arun Reddy",
+    "skills": [
+      "Milling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "MILL-03",
+      "MILL-01"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 256.58,
+    "overtime_rate": 384.87,
+    "roster": {
+      "0": [
+        1
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "5": [
+        2
+      ],
+      "6": [
+        1
+      ],
+      "7": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        1
+      ],
+      "12": [
+        2
+      ],
+      "13": [
+        2,
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-013",
+    "name": "Karthik Rao",
+    "skills": [
+      "Milling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "MILL-01",
+      "MILL-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 187.42,
+    "overtime_rate": 281.13,
+    "roster": {
+      "1": [
+        1
+      ],
+      "2": [
+        1
+      ],
+      "3": [
+        1
+      ],
+      "4": [
+        1
+      ],
+      "5": [
+        2
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-014",
+    "name": "Harish Shetty",
+    "skills": [
+      "Milling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "MILL-02",
+      "MILL-03"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 247.8,
+    "overtime_rate": 371.7,
+    "roster": {
+      "0": [
+        2
+      ],
+      "1": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "4": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        2
+      ],
+      "11": [
+        2
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-015",
+    "name": "Balaji Nair",
+    "skills": [
+      "Drilling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "DRILL-01",
+      "DRILL-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 244.57,
+    "overtime_rate": 366.86,
+    "roster": {
+      "2": [
+        1
+      ],
+      "3": [
+        2
+      ],
+      "4": [
+        2
+      ],
+      "5": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        2
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-016",
+    "name": "Ramesh Reddy",
+    "skills": [
+      "Drilling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "DRILL-02",
+      "DRILL-03"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 222.9,
+    "overtime_rate": 334.35,
+    "roster": {
+      "0": [
+        2
+      ],
+      "1": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "8": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "13": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-017",
+    "name": "Kannan Menon",
+    "skills": [
+      "Drilling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "DRILL-03",
+      "DRILL-01"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 224.16,
+    "overtime_rate": 336.24,
+    "roster": {
+      "0": [
+        2
+      ],
+      "1": [
+        1
+      ],
+      "2": [
+        1
+      ],
+      "5": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "7": [
+        1
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "12": [
+        1
+      ],
+      "13": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-018",
+    "name": "Mahesh Menon",
+    "skills": [
+      "Drilling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "DRILL-01",
+      "DRILL-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 250.84,
+    "overtime_rate": 376.26,
+    "roster": {
+      "0": [
+        1
+      ],
+      "1": [
+        1
+      ],
+      "2": [
+        1
+      ],
+      "3": [
+        2
+      ],
+      "6": [
+        1
+      ],
+      "7": [
+        1
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "13": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-019",
+    "name": "Manoj Kumar",
+    "skills": [
+      "Drilling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "DRILL-02",
+      "DRILL-03"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 195.38,
+    "overtime_rate": 293.07,
+    "roster": {
+      "0": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2,
+        1
+      ],
+      "4": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "9": [
+        1
+      ],
+      "10": [
+        2
+      ],
+      "11": [
+        2
+      ],
+      "13": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-020",
+    "name": "Muthu Shetty",
+    "skills": [
+      "Inspection"
+    ],
+    "qualified_machines": [
+      "INSPECT-01",
+      "INSPECT-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 232.9,
+    "overtime_rate": 349.35,
+    "roster": {
+      "0": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "4": [
+        2
+      ],
+      "5": [
+        1
+      ],
+      "7": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        2
+      ],
+      "6": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-021",
+    "name": "Murugan Naidu",
+    "skills": [
+      "Inspection"
+    ],
+    "qualified_machines": [
+      "INSPECT-01",
+      "INSPECT-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 258.82,
+    "overtime_rate": 388.23,
+    "roster": {
+      "0": [
+        1
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "5": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "12": [
+        1
+      ],
+      "13": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-022",
+    "name": "Ramesh Shetty",
+    "skills": [
+      "Inspection"
+    ],
+    "qualified_machines": [
+      "INSPECT-01",
+      "INSPECT-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 249.32,
+    "overtime_rate": 373.98,
+    "roster": {
+      "0": [
+        1
+      ],
+      "1": [
+        1,
+        2
+      ],
+      "2": [
+        1
+      ],
+      "4": [
+        1
+      ],
+      "5": [
+        1
+      ],
+      "7": [
+        1
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-023",
+    "name": "Kannan Rao",
+    "skills": [
+      "Inspection"
+    ],
+    "qualified_machines": [
+      "INSPECT-01",
+      "INSPECT-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 216.27,
+    "overtime_rate": 324.41,
+    "roster": {
+      "0": [
+        1
+      ],
+      "1": [
+        1
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        1
+      ],
+      "4": [
+        1
+      ],
+      "7": [
+        1
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        1,
+        2
+      ],
+      "13": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-024",
+    "name": "Mahesh Naidu",
+    "skills": [
+      "Turning",
+      "Milling"
+    ],
+    "qualified_machines": [
+      "LATHE-01",
+      "LATHE-02",
+      "MILL-01",
+      "MILL-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 193.01,
+    "overtime_rate": 289.51,
+    "roster": {
+      "0": [
+        1
+      ],
+      "2": [
+        1
+      ],
+      "3": [
+        1
+      ],
+      "4": [
+        2
+      ],
+      "5": [
+        1
+      ],
+      "7": [
+        1
+      ],
+      "9": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        1
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-025",
+    "name": "Yogesh Reddy",
+    "skills": [
+      "Milling",
+      "Drilling",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "MILL-02",
+      "MILL-03",
+      "DRILL-02",
+      "DRILL-03"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 233.61,
+    "overtime_rate": 350.42,
+    "roster": {
+      "1": [
+        2
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "4": [
+        1
+      ],
+      "5": [
+        2
+      ],
+      "8": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "11": [
+        2
+      ],
+      "12": [
+        2
+      ]
+    },
+    "absences": {}
+  },
+  {
+    "operator_id": "OP-026",
+    "name": "Anand Gowda",
+    "skills": [
+      "Drilling",
+      "Inspection",
+      "Deburring"
+    ],
+    "qualified_machines": [
+      "DRILL-03",
+      "DRILL-01",
+      "INSPECT-01",
+      "INSPECT-02"
+    ],
+    "available_shifts": [
+      1,
+      2
+    ],
+    "hourly_rate": 228.73,
+    "overtime_rate": 343.09,
+    "roster": {
+      "0": [
+        1
+      ],
+      "2": [
+        2
+      ],
+      "3": [
+        2
+      ],
+      "5": [
+        2
+      ],
+      "6": [
+        2
+      ],
+      "7": [
+        2
+      ],
+      "9": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "12": [
+        2
+      ],
+      "13": [
+        2
+      ],
+      "8": [
+        2
+      ]
+    },
+    "absences": {}
+  }
+]

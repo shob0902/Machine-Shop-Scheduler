@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The Machine Shop Scheduler - Report</title>
+<style>
+  @page { size: A4; margin: 22mm 16mm 20mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1f2937;
+    font-size: 11.5px;
+    line-height: 1.55;
+  }
+  h1 { font-size: 24px; color: #111827; margin: 0 0 6px; }
+  h2 { font-size: 18px; color: #1e3a8a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; margin-top: 0; }
+  h3 { font-size: 14px; color: #1e3a8a; margin-bottom: 4px; }
+  p { margin: 6px 0; }
+  ul, ol { margin: 6px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+  code { background: #f3f4f6; padding: 1px 5px; border-radius: 4px; font-family: Consolas, monospace; font-size: 10.5px; }
+  pre { background: #0f172a; color: #e2e8f0; padding: 12px 14px; border-radius: 8px; overflow-x: auto; font-size: 10px; line-height: 1.5; }
+  pre code { background: none; color: inherit; padding: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 10.5px; }
+  th, td { border: 1px solid #d1d5db; padding: 5px 8px; text-align: left; }
+  th { background: #eff6ff; color: #1e3a8a; }
+  .section { page-break-before: always; padding-top: 4px; }
+  .cover { page-break-after: always; height: 245mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .cover .badge { background: #1e3a8a; color: white; padding: 6px 18px; border-radius: 999px; font-size: 12px; letter-spacing: 1px; margin-bottom: 28px; }
+  .cover h1 { font-size: 40px; margin-bottom: 10px; }
+  .cover h2 { border: none; font-size: 20px; color: #374151; font-weight: 400; margin-bottom: 40px; }
+  .cover .meta { margin-top: 60px; font-size: 12.5px; color: #4b5563; }
+  .cover .meta div { margin: 4px 0; }
+  .cover .stack { margin-top: 30px; font-size: 11px; color: #6b7280; max-width: 420px; }
+  .note { background: #fef9c3; border-left: 4px solid #ca8a04; padding: 8px 12px; border-radius: 4px; margin: 10px 0; font-size: 10.5px; }
+  .assumption { background: #eff6ff; border-left: 4px solid #2563eb; padding: 8px 12px; border-radius: 4px; margin: 10px 0; font-size: 10.5px; }
+  .limitation { background: #fef2f2; border-left: 4px solid #dc2626; padding: 8px 12px; border-radius: 4px; margin: 10px 0; font-size: 10.5px; }
+  .screenshot { width: 100%; border: 1px solid #d1d5db; border-radius: 6px; margin: 8px 0 14px; }
+  .screenshot-cap { font-size: 10px; color: #6b7280; text-align: center; margin-top: -8px; margin-bottom: 12px; }
+  .toc-list { list-style: none; padding-left: 0; }
+  .toc-list li { display: flex; justify-content: space-between; border-bottom: 1px dotted #cbd5e1; padding: 4px 0; }
+  .diagram { border: 1px solid #d1d5db; border-radius: 8px; padding: 14px; background: #f8fafc; margin: 10px 0; font-family: Consolas, monospace; font-size: 10px; white-space: pre; line-height: 1.6; color: #1e293b; }
+  .flowbox { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .flowbox .box { border: 1.5px solid #2563eb; background: #eff6ff; color: #1e3a8a; border-radius: 6px; padding: 6px 14px; font-size: 10.5px; font-weight: 600; text-align: center; }
+  .flowbox .arrow { color: #94a3b8; font-size: 13px; }
+  .two-col { display: flex; gap: 16px; }
+  .two-col > div { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="badge">MIRAI LABS TECHNICAL ASSESSMENT - ASSIGNMENT C</div>
+  <h1>The Machine Shop Scheduler</h1>
+  <h2>Sridhar Precision Works</h2>
+  <div class="stack">
+    React + TypeScript + Vite + Tailwind &middot; Flask + Python &middot;
+    Google OR-Tools CP-SAT &middot; SQLite &middot; Netlify + Render
+  </div>
+  <div class="meta">
+    <div><strong>Candidate:</strong> Shourya Shobhit</div>
+    <div><strong>Date:</strong> 23 August 2026</div>
+    <div><strong>Version:</strong> 1.0</div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="section">
+<h2>Table of Contents</h2>
+<ul class="toc-list">
+  <li><span>1. Executive Summary</span></li>
+  <li><span>2. Assignment Understanding</span></li>
+  <li><span>3. Problem Statement</span></li>
+  <li><span>4. Why We Chose This Technology Stack</span></li>
+  <li><span>5. System Architecture</span></li>
+  <li><span>6. System Design</span></li>
+  <li><span>7. Data Model</span></li>
+  <li><span>8. Scheduling Algorithm</span></li>
+  <li><span>9. Replanning Algorithm</span></li>
+  <li><span>10. Three Scheduling Strategies</span></li>
+  <li><span>11. Cost Model</span></li>
+  <li><span>12. Supervisor UX</span></li>
+  <li><span>13. Disruption Scenario</span></li>
+  <li><span>14. Deployment Architecture</span></li>
+  <li><span>15. Testing</span></li>
+  <li><span>16. Trade-off Memo</span></li>
+  <li><span>17. Assumptions</span></li>
+  <li><span>18. Limitations</span></li>
+  <li><span>19. Future Improvements</span></li>
+</ul>
+</div>
+
+<!-- 1. EXECUTIVE SUMMARY -->
+<div class="section">
+<h2>1. Executive Summary</h2>
+<p>Sridhar Precision Works runs a 40-person, 14-machine, 2-shift automotive
+components shop with roughly 25 open orders at any time. Manual scheduling
+cannot simultaneously satisfy machine capability, the fact that only 3
+people are qualified to run the grinding machines, sequence-dependent
+changeovers, planned maintenance, material delays, and a dominant Tier-1
+customer's just-in-time delivery penalties &mdash; and it certainly cannot
+replan all of that in the minutes after a machine breaks down mid-shift.</p>
+<p>This project builds a working prototype that (1) generates a realistic,
+internally-consistent synthetic dataset for that shop, (2) builds a real
+2-week, machine-by-machine, shift-by-shift schedule using Google OR-Tools'
+CP-SAT constraint solver, (3) supports three genuinely different
+optimization strategies with a real comparison and a data-driven
+recommendation, and (4) &mdash; the assignment's stated priority &mdash;
+replans that schedule when a disruption hits, freezing what has already
+happened and re-optimizing only the future, with a before/after comparison,
+a cost impact, and a concrete recommended action for the owner.</p>
+<p>The final application is a Flask + OR-Tools backend and a React
+supervisor-facing frontend, deployable to Render and Netlify respectively,
+with 38 automated tests, full API documentation, and this report. Every
+number quoted in this document was produced by the running application
+&mdash; see Section 15 (Testing) and the screenshots throughout for how to
+verify that independently.</p>
+</div>
+
+<!-- 2. ASSIGNMENT UNDERSTANDING -->
+<div class="section">
+<h2>2. Assignment Understanding</h2>
+<p>The official assignment asks for: synthetic shop data generation (14
+machines, ~25 orders, 3-6 operations each); a real 2-week schedule built
+machine-by-machine and shift-by-shift; hard respect for machine
+capability, operator skill/availability, changeovers, maintenance, and
+material constraints; customer-tier-aware cost/priority handling; a
+disruption engine covering machine breakdown, operator absence, material
+delay, rework, and (optionally) power cuts, with genuine replanning and a
+before/after comparison; three distinct scheduling strategies with a
+comparison and recommendation; a supervisor-friendly, non-technical UI;
+and full documentation including this report.</p>
+<p><strong>Official requirements vs. our implementation choices:</strong>
+the assignment intentionally leaves shift timings, cost rates, penalty
+formulas, time granularity, and several other operational parameters
+unspecified. Every such value used here is called out explicitly as an
+assumption (Section 17) rather than presented as if it came from the
+assignment text.</p>
+</div>
+
+<!-- 3. PROBLEM STATEMENT -->
+<div class="section">
+<h2>3. Problem Statement</h2>
+<div class="diagram">Orders
+  +
+Machines            (14, each with a fixed capability set)
+  +
+Operators           (26, only 3 qualified for grinding)
+  +
+Routing             (3-6 sequential operations per order)
+  +
+Changeovers         (15-25 min same-family, 45-180 min cross-family)
+  +
+Due dates           (tier-weighted penalties, one dominant Tier-1 customer)
+  +
+Breakdowns          (historical + live disruption injection)
+  +
+Material constraints (some orders' material arrives after release)
+  +
+Quality/rework      (2-5% inspection failure -&gt; rework re-enters the queue)
+  +
+Overtime            (1.75x rate, up to 2h/day)
+  =
+A constrained combinatorial optimization problem</div>
+<p>Every "+" above is a real, enforced constraint or cost term in the
+CP-SAT model (Section 8), not a cosmetic data field. This is why the
+problem is genuinely NP-hard flexible-job-shop scheduling with
+sequence-dependent setup times &mdash; and why Section 8 spends as much
+space as it does on how that complexity is actually handled at this
+dataset's scale.</p>
+</div>
+
+<!-- 4. TECH STACK -->
+<div class="section">
+<h2>4. Why We Chose This Technology Stack</h2>
+<table>
+<tr><th>Technology</th><th>Why</th></tr>
+<tr><td>React</td><td>Component reuse across 7 pages (Gantt, status badges, stat cards); the explicitly requested framework.</td></tr>
+<tr><td>Vite</td><td>Fast dev server + build; first-class TypeScript support.</td></tr>
+<tr><td>Tailwind CSS</td><td>Rapid, consistent utility-based styling for a large-text, supervisor-friendly UI.</td></tr>
+<tr><td>Flask</td><td>Lightweight REST layer around a Python-native optimization core; no unneeded ORM/admin overhead.</td></tr>
+<tr><td>Python</td><td>The language OR-Tools' most complete API targets, plus Pandas/Pydantic for data generation and validation.</td></tr>
+<tr><td>OR-Tools</td><td>Google's open-source constraint optimization suite &mdash; the assignment's required optimization engine.</td></tr>
+<tr><td>CP-SAT</td><td>Purpose-built for discrete scheduling with disjunctive/reified constraints (interval variables, no-overlap) &mdash; a far better fit than a generic LP/MIP solver for this problem shape.</td></tr>
+<tr><td>SQLite</td><td>Zero-ops relational storage sized correctly for prototype-scale mutable state (active schedules, disruption log).</td></tr>
+<tr><td>Pandas</td><td>Data generation and aggregate analysis helper.</td></tr>
+<tr><td>Recharts</td><td>KPI and cost visualization (bar/pie charts) on the Strategy Comparison and Cost Analysis pages.</td></tr>
+<tr><td>Netlify</td><td>Zero-config static deployment for the Vite build, with environment-variable-driven API URL.</td></tr>
+<tr><td>Render</td><td>Simple Python web service deployment with a documented `render.yaml`.</td></tr>
+</table>
+<p>Alternatives (Postgres, Django, a JS-based solver) were not necessary
+at this scale and would have added operational overhead without changing
+what the assignment actually requires to be demonstrated &mdash; see
+Section 19 for where they'd matter in production.</p>
+</div>
+
+<!-- 5. SYSTEM ARCHITECTURE -->
+<div class="section">
+<h2>5. System Architecture</h2>
+<div class="flowbox">
+  <div class="box">User (Supervisor)</div><div class="arrow">&#8595;</div>
+  <div class="box">React Frontend (Vite / TypeScript / Tailwind)</div><div class="arrow">&#8595;</div>
+  <div class="box">REST API (Axios &#8596; Flask)</div><div class="arrow">&#8595;</div>
+  <div class="box">Flask Backend (routes/*.py blueprints)</div><div class="arrow">&#8595;</div>
+  <div class="box">Services (cost / disruption / metrics / strategy / data)</div><div class="arrow">&#8595;</div>
+  <div class="box">OR-Tools CP-SAT (scheduler/*.py)</div><div class="arrow">&#8595;</div>
+  <div class="box">SQLite / JSON Data Layer</div>
+</div>
+<p style="text-align:center; margin-top:14px; color:#6b7280; font-size:10px;">Full Mermaid source for this and 5 other diagrams (scheduling flow, replanning flow, ER diagram, deployment, three-strategy flow) is in <code>docs/architecture.md</code>.</p>
+<div class="flowbox" style="margin-top:18px;">
+  <div class="box" style="border-color:#dc2626;background:#fef2f2;color:#991b1b;">Disruption</div><div class="arrow">&#8595;</div>
+  <div class="box">Replanner (freeze + overlay + re-solve)</div><div class="arrow">&#8595;</div>
+  <div class="box">OR-Tools CP-SAT</div><div class="arrow">&#8595;</div>
+  <div class="box">New Schedule</div><div class="arrow">&#8595;</div>
+  <div class="box">Cost Comparison</div><div class="arrow">&#8595;</div>
+  <div class="box" style="border-color:#16a34a;background:#f0fdf4;color:#166534;">Supervisor</div>
+</div>
+</div>
+
+<!-- 6. SYSTEM DESIGN -->
+<div class="section">
+<h2>6. System Design</h2>
+<h3>Frontend</h3>
+<p>A `StrategyProvider` React Context holds the active strategy
+(persisted to `localStorage`) and a refresh counter pages watch after a
+generate/replan action; each page fetches its own typed data through
+`services/api.ts`. Seven pages cover every Section 29 requirement:
+Dashboard, Schedule (a hand-built CSS-positioned Gantt, not a chart
+library &mdash; none fit a resource-timeline view well), Orders, Machines,
+Disruptions (with the REPLAN button and live before/after comparison),
+Strategy Comparison, and Cost Analysis.</p>
+<h3>Backend</h3>
+<p>A Flask app factory registers one blueprint per resource area; every
+route delegates to a `services/` module, never touching the scheduler or
+database directly &mdash; keeping the HTTP layer thin and independently
+testable.</p>
+<h3>Data layer</h3>
+<p>Master data (machines/operators/orders/changeovers/breakdowns) is
+generated once as JSON and reloaded on demand; mutable state (active
+schedule per strategy, disruption history) lives in SQLite.</p>
+<h3>Scheduling / disruption / cost / strategy engines</h3>
+<p>Covered in full in Sections 8-11.</p>
+</div>
+
+<!-- 7. DATA MODEL -->
+<div class="section">
+<h2>7. Data Model</h2>
+<p>Core entities: <strong>Machine</strong> (id, type, capabilities, hourly
+&amp; overtime cost, maintenance windows, breakdown history),
+<strong>Operator</strong> (skills, qualified machines, per-day roster,
+absences), <strong>Order</strong> (customer, tier, part family, quantity,
+release/material/due dates, penalty rate, revenue priority, a 3-6-step
+routing), <strong>Operation</strong> (one routing step, possibly split
+into parallel sub-batches for large lots), <strong>ScheduledOperation</strong>
+(the solved machine/operator/start/end/changeover for one operation),
+<strong>Disruption</strong> (type, payload, and the replan result it
+triggered).</p>
+<div class="diagram">MACHINE 1---* MAINTENANCE_WINDOW, BREAKDOWN, SCHEDULED_OPERATION
+OPERATOR 1---* SCHEDULED_OPERATION
+ORDER 1---&#123; OPERATION (3-6 routing steps) &#125;---* SCHEDULED_OPERATION
+ORDER 1---1 ORDER_COMPLETION (promised date, status)
+DISRUPTION ---triggers---&gt; SCHEDULE_RESULT (replan output)</div>
+<p>Full field-level ER diagram (Mermaid source) is in
+<code>docs/architecture.md</code>.</p>
+</div>
+
+<!-- 8. SCHEDULING ALGORITHM -->
+<div class="section">
+<h2>8. Scheduling Algorithm</h2>
+<p>Full detail in <code>docs/scheduling-algorithm.md</code>; summary here.</p>
+<h3>Time model</h3>
+<p>14-day horizon, 2 shifts (06:00-14:00, 14:00-22:00) plus up to 2h/day
+overtime, in <strong>30-minute buckets</strong>. (Section 17 suggests 15
+minutes as an example; 30 was chosen after 15-minute buckets produced a
+CP-SAT model that took too long to find even a first feasible solution at
+this dataset's scale &mdash; see "Solver performance" below and in the
+scheduling-algorithm doc for the measured numbers behind that decision.)</p>
+<h3>Hard constraints</h3>
+<table>
+<tr><th>Constraint</th><th>Mechanism</th></tr>
+<tr><td>Machine capability</td><td>Only capable machines appear in an operation's candidate `assign` variables</td></tr>
+<tr><td>Machine capacity</td><td><code>AddNoOverlap</code> over optional intervals per machine</td></tr>
+<tr><td>Operation precedence</td><td>Linear: next step's start &ge; all of the previous step's ends</td></tr>
+<tr><td>Operator availability</td><td>Non-rostered/absent windows added as mandatory intervals in the operator's own <code>AddNoOverlap</code> group</td></tr>
+<tr><td>Operator skills</td><td>Only skilled + machine-qualified operators appear as candidates</td></tr>
+<tr><td>Maintenance</td><td>Machine maintenance windows added as mandatory intervals, same mechanism as operator availability</td></tr>
+<tr><td>Material availability</td><td>An order's first operation cannot start before <code>max(release_date, material_available_date)</code></td></tr>
+<tr><td>Shift constraints</td><td>Same mandatory-interval mechanism; a day-boundary guard additionally forbids any operation from straddling the overnight gap</td></tr>
+</table>
+<h3>Optimization objectives</h3>
+<p>Cost, lateness (count + magnitude, priority-weighted), overtime, and a
+robustness proxy (peak/grinding machine utilization) &mdash; see Section
+10 for how these combine into the three strategies. Changeover cost is
+computed and reported exactly, but is not a term inside the CP-SAT
+objective itself &mdash; see the next subsection.</p>
+<h3>Sequence-dependent changeovers: a two-phase design</h3>
+<p>The assignment requires changeovers to genuinely affect scheduling, not
+sit in a decorative table. The textbook CP-SAT pattern for this &mdash;
+one boolean "does operation i run before j" per candidate pair on a given
+machine, reified with the exact changeover gap &mdash; is correct, and was
+the first implementation built here. At this dataset's scale (many
+interchangeable machines per operation before pruning), it alone produced
+tens of thousands of constraints and pushed the solver past 150 seconds
+without a first feasible solution. The shipped design instead splits the
+work into two phases: <strong>Phase 1</strong> (CP-SAT) picks machine/
+operator assignments and an approximate schedule using the efficient
+<code>AddNoOverlap</code> primitive; <strong>Phase 2</strong> (a fast,
+always-run, deterministic pass) replays those assignments in the relative
+order CP-SAT produced and inserts every real changeover gap, cascading any
+necessary delay through precedence and resource chains. Changeover is
+genuinely enforced in what the API returns &mdash; it just is not
+re-optimized against inside CP-SAT's own search. This trade-off is
+explained in full, including the exact measured constraint counts before
+and after, in <code>docs/scheduling-algorithm.md</code>.</p>
+<h3>Solver performance (measured)</h3>
+<p>A 6-8 order slice reliably reaches <code>OPTIMAL</code> in single-digit
+seconds. The full 25-order/~211-operation model did not reach
+<code>OPTIMAL</code>/<code>FEASIBLE</code> within 120 seconds in repeated
+development runs. <code>solve_schedule</code> always tries CP-SAT first
+(with a warm-start heuristic hint); if it cannot converge in the time
+budget, a full-horizon constructive heuristic builds a schedule instead,
+and the response's <code>solver_status</code> is honestly set to
+<code>FEASIBLE_HEURISTIC_FALLBACK</code> &mdash; never disguised as
+<code>OPTIMAL</code>. This is the single most important limitation of the
+current system at full scale and is documented, not hidden &mdash; see
+Section 18.</p>
+</div>
+
+<!-- 9. REPLANNING ALGORITHM -->
+<div class="section">
+<h2>9. Replanning Algorithm</h2>
+<div class="diagram">Current schedule
+   &#8595;
+Disruption detected (breakdown / absence / delay / rework / power-cut)
+   &#8595;
+Freeze completed work           (end &lt;= now)
+Freeze in-progress work         (start &lt;= now &lt; end), UNLESS the
+                                  disruption itself interrupts it
+   &#8595;
+Apply disruption as a constraint overlay
+   &#8595;
+Re-optimize ONLY the non-frozen future
+   &#8595;
+New schedule
+   &#8595;
+Compare old vs new (moved ops, order status, cost delta)
+   &#8595;
+Calculate impact + generate the owner-action recommendation</div>
+<p>Frozen operations are passed back into the solver as hard-fixed
+(machine, operator, start, end) &mdash; not simply excluded &mdash; so
+they still correctly occupy machine/operator capacity while the future is
+re-optimized around them. This is why the result is never "a completely
+new, unrelated schedule": the assignment is explicit that it must not be,
+and operationally a supervisor cannot act on a plan that discarded
+everything already in motion.</p>
+<p>The owner-action recommendation
+(<code>services/disruption_service.py: generate_owner_action</code>) is
+generated from the actual before/after comparison &mdash; it picks the
+worst-affected order (weighted by customer tier and how late it slipped)
+and writes its reasoning from the real <code>cost_delta</code> figures,
+not a template.</p>
+</div>
+
+<!-- 10. THREE STRATEGIES -->
+<div class="section">
+<h2>10. Three Scheduling Strategies</h2>
+<h3>Cheapest</h3>
+<p>Objective: <code>operating_cost + overtime_cost + penalty_cost</code>.
+Trade-off: may accept more lateness if the penalty is smaller than the
+overtime that would avoid it.</p>
+<h3>Most On-Time</h3>
+<p>Objective: heavily weighted late-order count and tardiness (both
+priority-multiplied), with cost as a tie-break only. Trade-off: may spend
+significantly more on overtime to hit dates.</p>
+<h3>Most Robust</h3>
+<p>Objective: priority-weighted tardiness plus explicit peak-utilization
+and peak-grinding-utilization penalties. Trade-off: may not be the
+absolute cheapest or most on-time, in exchange for spare capacity that
+can absorb the next disruption without collapsing.</p>
+<p>See Section 16 (Trade-off Memo) for a real comparison table from a live
+run, and <code>docs/scheduling-algorithm.md</code> Section 4 for the exact
+objective weights.</p>
+</div>
+
+<!-- 11. COST MODEL -->
+<div class="section">
+<h2>11. Cost Model</h2>
+<div class="diagram">Total Cost = Operating Cost
+             + Overtime Cost
+             + Late Penalties
+             + Changeover Cost
+             + Other Disruption Cost</div>
+<ul>
+<li><strong>Operating cost</strong> &mdash; <code>duration_hours &times; (machine.hourly_cost + operator.hourly_rate)</code>, summed over every non-overtime operation.</li>
+<li><strong>Overtime cost</strong> &mdash; same, at the overtime rate (1.75x), for operations touching the overtime window.</li>
+<li><strong>Late penalties</strong> &mdash; <code>(tardiness_hours / 24) &times; order.late_penalty_per_day</code>.</li>
+<li><strong>Changeover cost</strong> &mdash; changeover minutes actually inserted by Phase 2, billed at the machine's hourly rate.</li>
+<li><strong>Other disruption cost</strong> &mdash; reserved for costs like the generator premium on a power-cut scenario.</li>
+</ul>
+<p>All five are computed post-solve, directly from the realized schedule
+(never from the CP-SAT objective's internal linear approximation of
+overtime &mdash; see Section 8) &mdash; so the number shown on the Cost
+Analysis page is always the same number used to price a disruption.</p>
+</div>
+
+<!-- 12. SUPERVISOR UX -->
+<div class="section">
+<h2>12. Supervisor UX</h2>
+<p>The target user is a shop-floor supervisor who may be more comfortable
+in Kannada or Tamil than English and needs to know, within seconds, what
+needs attention. The UI is deliberately not an engineering dashboard:</p>
+<ul>
+<li>Large base text (16px+), generous spacing, high-contrast status colors.</li>
+<li>A simple 4-color status vocabulary everywhere: 🟢 ON TRACK, 🟡 AT RISK, 🔴 LATE, ⚫ MACHINE DOWN.</li>
+<li>An "Action Needed" panel at the top of the Dashboard, sorted critical-first, in plain language ("ORD-008 is LATE by 130.5h") rather than jargon.</li>
+<li>A single, unmissable red <strong>REPLAN</strong> button on the Disruptions page.</li>
+<li>Minimal technical terminology anywhere a supervisor (not an engineer) would look.</li>
+</ul>
+<img class="screenshot" src="SCREENSHOT_DASHBOARD" />
+<div class="screenshot-cap">Actual captured screenshot: Supervisor Dashboard, live data.</div>
+</div>
+
+<!-- 13. DISRUPTION SCENARIO -->
+<div class="section">
+<h2>13. Disruption Scenario</h2>
+<p>The official-style scenario &mdash; grinding machine down Tuesday 11 AM
+for 8+ hours, with a Tier-1 delivery at risk &mdash; run live against this
+application:</p>
+<div class="diagram">BEFORE            (schedule as generated)
+   &#8595;
+DISRUPTION        POST /api/disruptions/breakdown
+                   &#123; machine_id: GRIND-01, start_time: 2026-08-25T11:00:00,
+                     duration_minutes: 480 &#125;
+   &#8595;
+REPLAN            freeze + overlay + re-solve (Section 9)
+   &#8595;
+AFTER             new schedule + before/after comparison
+   &#8595;
+COST IMPACT       Rs.6,136.31 in the captured run below</div>
+<img class="screenshot" src="SCREENSHOT_DISRUPTIONS" />
+<div class="screenshot-cap">Actual captured screenshot: before/after comparison and owner-action recommendation for this exact scenario.</div>
+<p>Full walkthrough (what changed, what stayed frozen, which orders
+slipped, the exact owner-action text) is in
+<code>docs/DEFENSE_PREPARATION.md</code>.</p>
+</div>
+
+<!-- 14. DEPLOYMENT -->
+<div class="section">
+<h2>14. Deployment Architecture</h2>
+<div class="diagram">GitHub
+ |--&gt; Netlify
+ |      `-- React (frontend/, `npm run build`, VITE_API_BASE_URL env var)
+ |
+ `--&gt; Render
+        `-- Flask (backend/, gunicorn app:app, 180s worker timeout)
+              `-- OR-Tools CP-SAT (in-process)
+              `-- SQLite (schedules, disruption log)</div>
+<p><code>render.yaml</code> and <code>netlify.toml</code> at the repo root
+configure both services. <code>FRONTEND_URL</code> (backend CORS
+allow-list) and <code>VITE_API_BASE_URL</code> (frontend API target) are
+both environment variables &mdash; neither service hardcodes the other's
+URL in source.</p>
+</div>
+
+<!-- 15. TESTING -->
+<div class="section">
+<h2>15. Testing</h2>
+<p><strong>38 automated tests, actual result: 38 passed</strong> (backend
+`pytest tests/ -q`, ~5 minutes dominated by CP-SAT solve time on the
+6-order test fixture). Coverage:</p>
+<ul>
+<li><strong>Data</strong> &mdash; machine count = 14, order count ~25, 3-6 routing steps/order, valid capabilities, only 3 grinding-qualified operators, changeover matrix covers all family pairs and is cheaper within-family on average, some orders have delayed material.</li>
+<li><strong>Scheduling</strong> &mdash; no machine overlaps, no operator overlaps, precedence respected, no work during maintenance, no work before material availability, valid machine/operator assignment, a clean <code>SchedulingError</code> (not a crash) for an unschedulable operation type.</li>
+<li><strong>Replanning</strong> &mdash; machine breakdown (frozen work preserved, broken machine avoided in the blocked window), operator absence, material delay, rework (injects and schedules a new operation).</li>
+<li><strong>Cost</strong> &mdash; all breakdown components present and non-negative, components sum to the reported total, overtime/penalty costs are zero exactly when there is no overtime/lateness.</li>
+<li><strong>Strategy comparison</strong> &mdash; all three strategies produce a valid schedule with a real cost and a bounded on-time percentage.</li>
+<li><strong>API</strong> &mdash; health check, schedule generation, invalid-strategy 400, orders/machines endpoints, a full breakdown-disruption round trip, missing-field 400, unknown-route 404.</li>
+</ul>
+<div class="note">This test run and count were produced by actually invoking <code>pytest</code> against this codebase during development &mdash; not estimated. Re-run <code>cd backend &amp;&amp; pytest tests/ -q</code> to reproduce.</div>
+</div>
+
+<!-- 16. TRADE-OFF MEMO -->
+<div class="section">
+<h2>16. Trade-off Memo</h2>
+<p>Real output from a live <code>POST /api/strategies/compare</code> run
+(captured screenshot below). This run used the constructive-heuristic
+fallback for all three strategies (Section 8's "Solver performance"), so
+treat the exact figures as illustrative of the trade-off shape rather than
+a proven-optimal benchmark.</p>
+<table>
+<tr><th>Metric</th><th>Cheapest</th><th>Most On-Time</th><th>Most Robust</th></tr>
+<tr><td>Total cost</td><td>Rs.1,755,328.80</td><td>Rs.1,627,953.03</td><td>Rs.1,593,600.69</td></tr>
+<tr><td>Overtime cost</td><td>Rs.361,842.33</td><td>Rs.287,174.81</td><td>Rs.227,223.76</td></tr>
+<tr><td>Penalty cost</td><td>Rs.341,400.07</td><td>Rs.238,900.58</td><td>Rs.214,661.57</td></tr>
+<tr><td>Changeover cost</td><td>Rs.125,822.67</td><td>Rs.121,119.33</td><td>Rs.135,643.67</td></tr>
+<tr><td>Late orders (of 25)</td><td>14</td><td>11</td><td>9</td></tr>
+<tr><td>On-time %</td><td>44%</td><td>56%</td><td>64%</td></tr>
+<tr><td>Avg utilization</td><td>40.3%</td><td>39.0%</td><td>40.3%</td></tr>
+<tr><td>Robustness score</td><td>25.2</td><td>0.0</td><td>7.9</td></tr>
+</table>
+<img class="screenshot" src="SCREENSHOT_STRATEGIES" />
+<div class="screenshot-cap">Actual captured screenshot: Strategy Comparison page, same run as the table above.</div>
+<p><strong>Recommendation generated by the app itself:</strong> Most
+Robust &mdash; "64.0% on-time delivery (9 late order(s)); 7.9% spare
+capacity on the busiest machine (peak utilization 92.1%); also the
+lowest-cost of the three strategies." Full discussion of why Cheapest was
+not actually cheapest in this particular run (a heuristic-fallback
+artifact, explained honestly) is in
+<code>docs/trade-off-memo.md</code>.</p>
+</div>
+
+<!-- 17. ASSUMPTIONS -->
+<div class="section">
+<h2>17. Assumptions</h2>
+<p>None of the following come from the official assignment text, which
+does not specify them; they are engineering assumptions made to build a
+working system, declared here rather than left implicit.</p>
+<div class="assumption">
+<strong>Shift timings:</strong> 06:00-14:00 / 14:00-22:00, plus up to 2h/day overtime after shift 2. No work 22:00/00:00-06:00.<br/>
+<strong>Time granularity:</strong> 30-minute buckets (see Section 8 for why 15 was tried first and changed).<br/>
+<strong>Overtime multiplier:</strong> 1.75x machine+operator hourly rate, billed per whole operation.<br/>
+<strong>Generator premium:</strong> 3.0x electricity-linked machine cost.<br/>
+<strong>Penalty formula:</strong> <code>(tardiness_hours/24) &times; late_penalty_per_day</code>.<br/>
+<strong>Changeover costs:</strong> 15-25 min same-family, 45-180 min cross-family, billed at machine hourly rate.<br/>
+<strong>Processing-time assumption:</strong> proportional to quantity, machine-type-dependent per-piece rate; a single operation is capped at ~7.5h and split into parallel sub-batches beyond that (a shift-handover limitation, not a real physical one).<br/>
+<strong>Planning horizon:</strong> 14 days, fixed.<br/>
+<strong>Machine-family affinity:</strong> each part family is pre-qualified on a 2-machine "home pool" per machine type with &gt;2 members, for CP-SAT tractability (Grinding and Inspection, with only 2 machines, are left fully open).
+</div>
+</div>
+
+<!-- 18. LIMITATIONS -->
+<div class="section">
+<h2>18. Limitations</h2>
+<div class="limitation">
+<ul>
+<li>All data is synthetic; no real ERP/MES/IoT integration exists.</li>
+<li>SQLite is prototype-scale storage; a production deployment would need Postgres and a proper migration story.</li>
+<li><strong>Solver performance does not always reach a proven-optimal (or even first-feasible) CP-SAT solution for the full 25-order model within a practical time budget</strong> &mdash; measured and documented in Section 8, with an honest, labeled fallback rather than a silently-wrong or fabricated result.</li>
+<li>The disruption/replanning path, and smaller schedules generally, reliably reach true CP-SAT optimality in seconds &mdash; the limitation above is specific to the full-scale "generate a fresh 2-week schedule" case.</li>
+<li>The Kannada/Tamil supervisor-language requirement is addressed only through UI simplicity (large text, color status, minimal jargon), not actual translation.</li>
+<li>No authentication, multi-user concurrency control, or audit logging.</li>
+</ul>
+</div>
+</div>
+
+<!-- 19. FUTURE IMPROVEMENTS -->
+<div class="section">
+<h2>19. Future Improvements</h2>
+<ul>
+<li>PostgreSQL and a real ERP/MES integration for live order and machine-status data.</li>
+<li>Live machine telemetry and predictive maintenance.</li>
+<li>A proper sequence-dependent-changeover CP-SAT encoding (circuit constraint) once the candidate machine/operator pool can be pruned further &mdash; removing the current Phase-1/Phase-2 split.</li>
+<li>Background/async schedule generation with progress streaming, replacing the current blocking HTTP call for the full-scale case.</li>
+<li>A genuine Kannada/Tamil interface.</li>
+<li>Authentication, audit logs, and a cloud database for multi-user production use.</li>
+<li>More advanced robustness modelling (e.g. Monte Carlo disruption simulation to score candidate schedules).</li>
+</ul>
+<p style="margin-top:30px; color:#6b7280; font-size:10px; text-align:center;">
+End of report. See the repository README.md for local setup, deployment steps, and the full API reference.
+</p>
+</div>
+
+</body>
+</html>

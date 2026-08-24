@@ -1,0 +1,50 @@
+{
+  "Shaft": {
+    "Shaft": 19,
+    "Flange": 77,
+    "Housing": 94,
+    "Bracket": 152,
+    "Gear": 142,
+    "Pin": 89
+  },
+  "Flange": {
+    "Shaft": 122,
+    "Flange": 21,
+    "Housing": 45,
+    "Bracket": 122,
+    "Gear": 118,
+    "Pin": 98
+  },
+  "Housing": {
+    "Shaft": 155,
+    "Flange": 127,
+    "Housing": 22,
+    "Bracket": 158,
+    "Gear": 158,
+    "Pin": 99
+  },
+  "Bracket": {
+    "Shaft": 175,
+    "Flange": 166,
+    "Housing": 88,
+    "Bracket": 25,
+    "Gear": 66,
+    "Pin": 117
+  },
+  "Gear": {
+    "Shaft": 176,
+    "Flange": 130,
+    "Housing": 68,
+    "Bracket": 105,
+    "Gear": 25,
+    "Pin": 124
+  },
+  "Pin": {
+    "Shaft": 102,
+    "Flange": 95,
+    "Housing": 82,
+    "Bracket": 51,
+    "Gear": 56,
+    "Pin": 18
+  }
+}

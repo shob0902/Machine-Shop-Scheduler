@@ -1,0 +1,28 @@
+# Optional convenience for running the full stack locally with one command.
+# Not used for the Netlify/Render deployment path (see README.md
+# "Deployment") - this is purely a local development convenience.
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      DATABASE_URL: /app/shop.db
+      FRONTEND_URL: http://localhost:5173
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:5000
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
