@@ -1,7 +1,5 @@
 # The Machine Shop Scheduler
 
-**Sridhar Precision Works — Mirai Labs Technical Assessment (Assignment C)**
-
 A production-quality prototype that generates a realistic 40-person machine
 shop, builds a real 2-week production schedule with Google OR-Tools CP-SAT,
 and — the heart of the assignment — replans that schedule when a disruption
