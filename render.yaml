@@ -7,6 +7,11 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 180
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"   # pandas==2.2.2 (an ortools transitive dep) has no
+                          # prebuilt wheel for Render's default Python 3.14 and
+                          # fails to compile from source there - pin to a
+                          # version with full wheel coverage instead.
       - key: FLASK_ENV
         value: production
       - key: DATABASE_URL
