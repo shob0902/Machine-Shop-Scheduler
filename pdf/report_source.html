@@ -60,8 +60,8 @@
   </div>
   <div class="meta">
     <div><strong>Author:</strong> Shourya Shobhit</div>
-    <div><strong>Date:</strong> 23 August 2026</div>
-    <div><strong>Version:</strong> 1.0</div>
+    <div><strong>Date:</strong> 25 August 2026</div>
+    <div><strong>Version:</strong> 1.1</div>
   </div>
 </div>
 
@@ -319,8 +319,28 @@ budget, a full-horizon constructive heuristic builds a schedule instead,
 and the response's <code>solver_status</code> is honestly set to
 <code>FEASIBLE_HEURISTIC_FALLBACK</code> &mdash; never disguised as
 <code>OPTIMAL</code>. This is the single most important limitation of the
-current system at full scale and is documented, not hidden &mdash; see
-this.</p>
+current system at full scale, and is documented rather than hidden (see
+"Limitations" below).</p>
+<h3>Turnaround-time tuning</h3>
+<p>Two follow-up optimizations were made once the pattern above was
+confirmed empirically: since the full-scale model was observed to hit the
+heuristic fallback at the same result regardless of whether the time
+budget was 60s or 30s, the per-solve budget was tightened
+(<code>schedule/generate</code>: 60s&rarr;30s; a single disruption replan:
+45s&rarr;30s) &mdash; this cuts the typical worst-case wait without
+changing the returned schedule, because the extra time was not being
+converted into a better solution. Separately, <code>/api/strategies/
+compare</code> used to run Cheapest, Most On-Time, and Most Robust as three
+sequential CP-SAT solves (up to 3&times;45s = 135s worst case); those three
+solves are fully independent, so <code>strategy_service.run_all_strategies</code>
+now dispatches them concurrently on a small thread pool (CP-SAT's C++
+<code>Solve()</code> call releases the GIL, and each solve's internal
+worker count is trimmed so three concurrent solves do not oversubscribe
+the machine). Measured on this machine: a fresh three-strategy comparison
+that took up to ~135s serially now completes in <strong>~27s</strong>,
+with identical output (same costs, same on-time percentages, same
+recommendation) &mdash; confirming the win is purely eliminated idle
+waiting, not a quality trade-off.</p>
 </div>
 
 <!-- 9. REPLANNING ALGORITHM -->
@@ -407,13 +427,29 @@ in Kannada or Tamil than English and needs to know, within seconds, what
 needs attention. The UI is deliberately not an engineering dashboard:</p>
 <ul>
 <li>Large base text (16px+), generous spacing, high-contrast status colors.</li>
-<li>A simple 4-color status vocabulary everywhere: 🟢 ON TRACK, 🟡 AT RISK, 🔴 LATE, ⚫ MACHINE DOWN.</li>
+<li>A simple 4-color status vocabulary everywhere: ON TRACK (green), AT RISK (amber), LATE (red), MACHINE DOWN (black).</li>
 <li>An "Action Needed" panel at the top of the Dashboard, sorted critical-first, in plain language ("ORD-008 is LATE by 130.5h") rather than jargon.</li>
 <li>A single, unmissable red <strong>REPLAN</strong> button on the Disruptions page.</li>
 <li>Minimal technical terminology anywhere a supervisor (not an engineer) would look.</li>
 </ul>
+<h3>Visual design system: Soft Neumorphism</h3>
+<p>The frontend was redesigned around a calm, low-saturation blue/purple
+palette and a consistent soft-neumorphic shadow language (raised cards,
+inset form controls, flat surfaces) rather than flat Tailwind defaults
+&mdash; chosen specifically to read as precision manufacturing software
+rather than a generic admin template or consumer app. Concretely: every
+card, button, and input shares one small set of reusable shadow utilities
+(<code>frontend/src/index.css</code>); typography (Inter) carries the
+visual hierarchy instead of extra color; and the emoji previously used for
+navigation icons were replaced with a small set of hand-authored, single-
+color line icons (<code>frontend/src/components/Icons.tsx</code>) &mdash;
+emoji read as informal for a shop-floor production tool. The layout is
+fully responsive: the sidebar collapses below tablet width into a
+horizontally-scrolling icon nav strip so every page stays reachable on a
+phone, and wide content (the schedule Gantt board, data tables) scrolls
+within its own container instead of breaking the page layout.</p>
 <img class="screenshot" src="SCREENSHOT_DASHBOARD" />
-<div class="screenshot-cap">Actual captured screenshot: Supervisor Dashboard, live data.</div>
+<div class="screenshot-cap">Actual captured screenshot: Supervisor Dashboard, live data, current design.</div>
 </div>
 
 <!-- 13. DISRUPTION SCENARIO -->
