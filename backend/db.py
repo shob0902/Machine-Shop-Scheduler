@@ -4,7 +4,7 @@ Minimal SQLite persistence layer.
 The shop's MASTER data (machines/operators/orders/changeovers/breakdowns) is
 generated once as JSON (backend/data/*.json) and loaded straight into the
 solver - it doesn't need a relational store. What DOES belong in SQLite,
-per Section 31, is the mutable application state that accumulates across a
+per this, is the mutable application state that accumulates across a
 session: generated schedules (one per strategy) and the disruption log, so
 the API can be restarted without losing "what was the last schedule" and so
 /api/disruptions has real history to show. This keeps the prototype easy to

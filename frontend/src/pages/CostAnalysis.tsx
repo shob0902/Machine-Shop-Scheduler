@@ -6,7 +6,8 @@ import { useStrategy } from "../hooks/useStrategy";
 import { Loading, ErrorBanner } from "../components/LoadingError";
 import StatCard from "../components/StatCard";
 
-const COLORS = ["#2563eb", "#dc2626", "#f59e0b", "#7c3aed", "#6b7280"];
+// Palette-consistent slice colors - reuses the theme's controlled accents only.
+const COLORS = ["#4F7CFF", "#E85D75", "#F2A93B", "#7657D9", "#667085"];
 
 export default function CostAnalysis() {
   const { strategy, refreshKey } = useStrategy();
@@ -36,8 +37,6 @@ export default function CostAnalysis() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900">Cost Analysis</h1>
-
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
         <StatCard label="Operating Cost" value={`Rs.${cost.operating_cost.toLocaleString()}`} />
         <StatCard label="Overtime Cost" value={`Rs.${cost.overtime_cost.toLocaleString()}`} tone={cost.overtime_cost > 0 ? "warn" : "good"} />
@@ -47,14 +46,14 @@ export default function CostAnalysis() {
         <StatCard label="Total Cost" value={`Rs.${cost.total_cost.toLocaleString()}`} />
       </div>
 
-      <div className="rounded-2xl border border-gray-200 bg-white p-4">
-        <p className="mb-2 font-semibold text-gray-700">Cost Breakdown</p>
+      <div className="neu-raised p-5">
+        <p className="mb-2 text-sm font-semibold text-ink">Cost Breakdown</p>
         <ResponsiveContainer width="100%" height={320}>
           <PieChart>
             <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={110} label>
-              {pieData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+              {pieData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} stroke="#E8EEF5" strokeWidth={2} />)}
             </Pie>
-            <Tooltip formatter={(v: any) => `Rs.${Number(v).toLocaleString()}`} />
+            <Tooltip formatter={(v: any) => `Rs.${Number(v).toLocaleString()}`} contentStyle={{ borderRadius: 12, border: "none", boxShadow: "4px 4px 10px #C5CED9" }} />
             <Legend />
           </PieChart>
         </ResponsiveContainer>

@@ -6,9 +6,10 @@ const DAY_SPAN_HOURS = 18; // 06:00 -> 24:00 (16 regular + 2 overtime hours mode
 const DAY_WIDTH = DAY_SPAN_HOURS * PIXELS_PER_HOUR;
 const ROW_HEIGHT = 56;
 
+// Reuses only the palette's controlled accent colors - no new hues introduced.
 const FAMILY_COLORS: Record<string, string> = {
-  Shaft: "bg-sky-500", Flange: "bg-emerald-500", Housing: "bg-amber-500",
-  Bracket: "bg-violet-500", Gear: "bg-rose-500", Pin: "bg-teal-500",
+  Shaft: "bg-primary", Flange: "bg-success", Housing: "bg-warning",
+  Bracket: "bg-accent", Gear: "bg-error", Pin: "bg-primary-dark",
 };
 
 function hoursIntoWindow(iso: string): number {
@@ -43,23 +44,25 @@ export default function Gantt({ machines, operations, horizonDays = 14 }: {
   const totalWidth = horizonDays * DAY_WIDTH;
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-4">
+    <div className="neu-raised p-4">
       <div className="mb-3 flex flex-wrap items-center gap-4 text-sm">
-        <span className="font-semibold text-gray-700">Part family:</span>
+        <span className="font-semibold text-ink">Part family:</span>
         {Object.entries(FAMILY_COLORS).map(([fam, cls]) => (
-          <span key={fam} className="flex items-center gap-1">
-            <span className={`h-3 w-3 rounded ${cls}`} /> {fam}
+          <span key={fam} className="flex items-center gap-1.5">
+            <span className={`h-3 w-3 rounded-md ${cls}`} /> <span className="text-muted">{fam}</span>
           </span>
         ))}
-        <span className="flex items-center gap-1"><span className="h-3 w-3 rounded bg-gray-400" /> Maintenance</span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-3 w-3 rounded-md bg-dark-shadow" /> <span className="text-muted">Maintenance</span>
+        </span>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="neu-scroll overflow-x-auto rounded-2xl">
         <div style={{ width: totalWidth + 176 }}>
           {/* Day header row */}
           <div className="flex" style={{ marginLeft: 176 }}>
             {Array.from({ length: horizonDays }).map((_, d) => (
-              <div key={d} style={{ width: DAY_WIDTH }} className="border-r border-gray-100 py-1 text-center text-xs font-semibold text-gray-500">
+              <div key={d} style={{ width: DAY_WIDTH }} className="border-r border-dark-shadow/30 py-1 text-center text-xs font-semibold text-muted">
                 Day {d + 1}
               </div>
             ))}
@@ -68,16 +71,16 @@ export default function Gantt({ machines, operations, horizonDays = 14 }: {
           {machines.map((m) => {
             const ops = (byMachine.get(m.machine_id) || []).sort((a, b) => a.start_bucket - b.start_bucket);
             return (
-              <div key={m.machine_id} className="flex border-t border-gray-100" style={{ height: ROW_HEIGHT }}>
+              <div key={m.machine_id} className="flex border-t border-dark-shadow/20" style={{ height: ROW_HEIGHT }}>
                 <div className="flex w-44 shrink-0 flex-col justify-center pr-2">
-                  <p className="truncate text-sm font-semibold text-gray-800">{m.machine_name}</p>
-                  <p className="text-xs text-gray-400">{m.machine_id}</p>
+                  <p className="truncate text-sm font-semibold text-ink">{m.machine_name}</p>
+                  <p className="text-xs text-muted">{m.machine_id}</p>
                 </div>
                 <div className="relative" style={{ width: totalWidth, height: ROW_HEIGHT }}>
                   {m.maintenance_windows.map((w: any, i: number) => (
                     <div
                       key={`maint-${i}`}
-                      className="absolute top-2 rounded bg-gray-300"
+                      className="absolute top-2 rounded-lg bg-dark-shadow"
                       style={{
                         left: w.day_index * DAY_WIDTH + (w.start_hour - 6) * PIXELS_PER_HOUR,
                         width: Math.max(4, (w.end_hour - w.start_hour) * PIXELS_PER_HOUR),
@@ -90,7 +93,7 @@ export default function Gantt({ machines, operations, horizonDays = 14 }: {
                     <button
                       key={op.operation_id}
                       onClick={() => setSelected(op)}
-                      className={`absolute top-2 overflow-hidden rounded text-left text-[11px] font-medium text-white shadow ${FAMILY_COLORS[op.part_family] || "bg-gray-500"} ${op.is_overtime ? "ring-2 ring-red-400" : ""}`}
+                      className={`absolute top-2 overflow-hidden rounded-lg text-left text-[11px] font-medium text-white shadow-sm transition-transform hover:scale-[1.02] hover:shadow-md ${FAMILY_COLORS[op.part_family] || "bg-muted"} ${op.is_overtime ? "ring-2 ring-error" : ""}`}
                       style={{ left: xFor(op), width: Math.max(6, widthFor(op) - 2), height: ROW_HEIGHT - 16 }}
                       title={`${op.order_id} - ${op.operation_type} (${op.quantity}pc)`}
                     >
@@ -105,11 +108,11 @@ export default function Gantt({ machines, operations, horizonDays = 14 }: {
       </div>
 
       {selected && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" onClick={() => setSelected(null)}>
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4" onClick={() => setSelected(null)}>
+          <div className="neu-raised w-full max-w-md p-6" onClick={(e) => e.stopPropagation()}>
             <div className="mb-3 flex items-start justify-between">
-              <h3 className="text-xl font-bold">{selected.order_id}</h3>
-              <button onClick={() => setSelected(null)} className="text-2xl leading-none text-gray-400 hover:text-gray-700">&times;</button>
+              <h3 className="text-xl font-bold text-ink">{selected.order_id}</h3>
+              <button onClick={() => setSelected(null)} className="neu-btn flex h-8 w-8 items-center justify-center text-lg leading-none text-muted">&times;</button>
             </div>
             <dl className="space-y-1 text-sm">
               <Row label="Operation" value={`${selected.operation_type} (seq ${selected.sequence})`} />
@@ -132,9 +135,9 @@ export default function Gantt({ machines, operations, horizonDays = 14 }: {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex justify-between border-b border-gray-100 py-1.5">
-      <dt className="text-gray-500">{label}</dt>
-      <dd className="font-medium text-gray-800">{value}</dd>
+    <div className="flex justify-between border-b border-dark-shadow/20 py-1.5">
+      <dt className="text-muted">{label}</dt>
+      <dd className="font-medium text-ink">{value}</dd>
     </div>
   );
 }

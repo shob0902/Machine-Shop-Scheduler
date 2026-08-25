@@ -1,5 +1,5 @@
 """
-CP-SAT variable & hard-constraint construction (Section 16 - "Hard constraints").
+CP-SAT variable & hard-constraint construction.
 
 Hard constraints implemented here (all MUST hold in any returned solution):
  1. Operation precedence            -> _add_precedence
@@ -136,8 +136,7 @@ def build_model(tasks: List[Task], order_infos: Dict[str, OrderInfo],
     _add_precedence(model, tasks, order_infos, start, end)
 
     # NOTE: machine maintenance windows AND operator shift/roster/absence
-    # blocked ranges (Section 6 hard constraints: maintenance, shift
-    # availability) are enforced inside _add_resource_disjunctions() below,
+    # blocked ranges are enforced inside _add_resource_disjunctions() below,
     # as mandatory "blocked" intervals sharing each resource's AddNoOverlap
     # group - see that function's docstring for why (this replaced an
     # earlier per-task-per-blocked-range reified encoding that was the
@@ -171,8 +170,7 @@ def _add_precedence(model, tasks, order_infos, start, end):
 def _add_resource_disjunctions(model, tasks, start, end, interval, uses_machine, uses_operator, operator_infos,
                                 machine_infos, changeovers):
     """
-    Both machine and operator capacity (Section 16 hard constraints #3 and
-    #4) are enforced with CP-SAT's dedicated `AddNoOverlap` global
+    Both machine and operator capacity are enforced with CP-SAT's dedicated `AddNoOverlap` global
     constraint over optional intervals - the efficient, scalable primitive
     OR-Tools provides for "at most one task on this resource at a time".
     Shift/roster/absence unavailability and machine maintenance windows are
@@ -182,7 +180,7 @@ def _add_resource_disjunctions(model, tasks, start, end, interval, uses_machine,
 
     An earlier version of this model instead used the classic disjunctive
     "one i-before-j boolean per candidate pair, reified with the exact
-    sequence-dependent changeover gap" pattern for machines (Section 6).
+    sequence-dependent changeover gap" pattern for machines.
     That is the textbook way to get EXACT changeover-aware sequencing out of
     CP-SAT, but on this dataset's scale (211 operations, several
     interchangeable machines/operators per operation) it alone produced tens
@@ -197,7 +195,7 @@ def _add_resource_disjunctions(model, tasks, start, end, interval, uses_machine,
       Phase 2 (scheduler/solver.py:_finalize_with_changeover): a fast
         deterministic pass that REPLAYS CP-SAT's machine/operator choices in
         the relative order CP-SAT picked, and recomputes exact start times so
-        that every sequence-dependent changeover gap (Section 6) is actually
+        that every sequence-dependent changeover gap is actually
         present in the final schedule - changeover is real and enforced in
         what gets returned to the API, it just is not re-optimized against
         during CP-SAT's own search. See docs/scheduling-algorithm.md.

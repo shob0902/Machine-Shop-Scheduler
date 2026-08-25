@@ -27,7 +27,7 @@ export default function Dashboard() {
     setGenerating(true);
     setError(null);
     try {
-      await scheduleApi.generate(strategy, 60, false);
+      await scheduleApi.generate(strategy, 30, false);
       load();
     } catch (e: any) {
       setError({ message: e.message, suggestion: e.suggestion });
@@ -42,14 +42,10 @@ export default function Dashboard() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Supervisor Dashboard</h1>
-          <p className="text-gray-500">Two-week production plan at a glance.</p>
+          <p className="text-sm font-medium text-muted">Good shift, supervisor.</p>
+          <p className="text-sm text-muted">Here's the two-week production plan at a glance.</p>
         </div>
-        <button
-          onClick={handleGenerate}
-          disabled={generating}
-          className="rounded-xl bg-blue-600 px-5 py-3 text-lg font-semibold text-white shadow hover:bg-blue-700 disabled:opacity-50"
-        >
+        <button onClick={handleGenerate} disabled={generating} className="neu-btn-primary px-5 py-3 text-sm font-semibold">
           {generating ? "Generating..." : "Regenerate Schedule"}
         </button>
       </div>
@@ -59,14 +55,12 @@ export default function Dashboard() {
       {data && (
         <>
           {data.critical_alerts.length > 0 && (
-            <div className="rounded-2xl border-2 border-red-300 bg-red-50 p-5">
-              <p className="mb-2 text-lg font-bold text-red-800">Action Needed</p>
-              <ul className="space-y-1">
+            <div className="neu-raised border-l-4 border-error p-5">
+              <p className="mb-2 text-base font-bold text-ink">Action Needed</p>
+              <ul className="space-y-1.5">
                 {data.critical_alerts.map((a, i) => (
-                  <li key={i} className={`text-base ${a.level === "critical" ? "text-red-800 font-semibold" : "text-yellow-800"}`}>
-                    {a.icon === "red" && "\u{1F534} "}
-                    {a.icon === "black" && "\u{26AB} "}
-                    {a.icon === "yellow" && "\u{1F7E1} "}
+                  <li key={i} className={`flex items-start gap-2 text-sm ${a.level === "critical" ? "font-semibold text-ink" : "text-muted"}`}>
+                    <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${a.icon === "red" ? "bg-error" : a.icon === "black" ? "bg-ink" : "bg-warning"}`} />
                     {a.message}
                   </li>
                 ))}
@@ -89,16 +83,16 @@ export default function Dashboard() {
             <StatCard label="Total Cost" value={`Rs.${data.total_cost.toLocaleString()}`} />
           </div>
 
-          <div className="rounded-2xl border border-gray-200 bg-white p-5">
-            <p className="mb-3 text-lg font-bold text-gray-900">Recent Disruptions</p>
+          <div className="neu-raised p-5">
+            <p className="mb-3 text-base font-bold text-ink">Recent Disruptions</p>
             {data.recent_disruptions.length === 0 ? (
-              <p className="text-gray-500">No disruptions recorded yet.</p>
+              <p className="text-sm text-muted">No disruptions recorded yet.</p>
             ) : (
-              <ul className="divide-y divide-gray-100">
+              <ul className="divide-y divide-dark-shadow/20">
                 {data.recent_disruptions.map((d) => (
-                  <li key={d.id} className="flex items-center justify-between py-2">
-                    <span className="font-medium text-gray-800">{d.disruption_type.replace(/_/g, " ")}</span>
-                    <span className="text-sm text-gray-500">{new Date(d.created_at).toLocaleString()}</span>
+                  <li key={d.id} className="flex items-center justify-between py-2.5">
+                    <span className="text-sm font-medium text-ink">{d.disruption_type.replace(/_/g, " ")}</span>
+                    <span className="text-xs text-muted">{new Date(d.created_at).toLocaleString()}</span>
                   </li>
                 ))}
               </ul>

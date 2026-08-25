@@ -8,7 +8,7 @@ from scheduler.solver import SchedulingError
 from services import data_service
 
 
-def get_or_generate_active_schedule(strategy: str = "cheapest", time_limit_seconds: float = 60.0) -> dict:
+def get_or_generate_active_schedule(strategy: str = "cheapest", time_limit_seconds: float = 30.0) -> dict:
     existing = db.get_active_schedule(strategy)
     if existing:
         return existing

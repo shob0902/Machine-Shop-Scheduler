@@ -31,7 +31,7 @@ def list_strategies():
 @strategy_bp.post("/compare")
 def compare():
     body = request.get_json(silent=True) or {}
-    time_limit = float(body.get("time_limit_seconds", 45.0))
+    time_limit = float(body.get("time_limit_seconds", 25.0))
     machines, operators, orders, changeovers = data_service.load_all()
     try:
         comparison = strategy_service.compare_strategies(machines, operators, orders, changeovers, time_limit)

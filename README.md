@@ -2,7 +2,7 @@
 
 A production-quality prototype that generates a realistic 40-person machine
 shop, builds a real 2-week production schedule with Google OR-Tools CP-SAT,
-and — the heart of the assignment — replans that schedule when a disruption
+and — the heart of the system — replans that schedule when a disruption
 (machine breakdown, operator absence, material delay, rework, power cut)
 hits, showing exactly what changed and what it cost.
 
@@ -236,32 +236,30 @@ errors during the capture run).
 
 ## 16. Assumptions
 
-The official assignment does not pin these down; values used here are
-documented (not claimed to come from the assignment) and are collected in
+None of these are physically fixed; values used here are engineering
+assumptions, documented rather than left implicit, and are collected in
 full in [docs/trade-off-memo.md](docs/trade-off-memo.md) "Assumptions":
 
 - Shifts: 06:00–14:00 / 14:00–22:00, plus up to 2h/day overtime after
   shift 2. Overnight (22:00/00:00–06:00) is never worked.
-- Time bucket: 30 minutes (Section 17 suggested 15; see
-  docs/scheduling-algorithm.md for why 30 was chosen for this dataset's
-  scale).
+- Time bucket: 30 minutes.
 - Overtime billed at 1.75x on top of machine/operator hourly rate
   (applied per operation, not sub-divided per bucket).
 - A single operation cannot span a shift handover; a lot large enough to
   need more than ~7.5 hours is split by the data generator into parallel
-  sub-batches (Section 9 "processing times... based on quantity").
+  sub-batches.
 - Each part family is pre-qualified on a realistic 2-machine "home pool"
   per machine type (not fully interchangeable across all 4 lathes, etc.)
   — a tractability + realism trade-off, documented in
   scheduler/models.py.
 - Changeover cost is billed at the machine's hourly rate for the
   changeover minutes actually incurred in the final (Phase-2) schedule.
-- Generator premium: 3x electricity-linked machine cost (Section 15).
+- Generator premium: 3x electricity-linked machine cost.
 
 ## 17. Limitations
 
 - All data is synthetic; there is no ERP/ MES/IoT integration.
-- SQLite is a prototype-scale store (Section 18 "prototype scale");
+- SQLite is a prototype-scale store;
   production would move to Postgres (see Future Improvements).
 - **Solver performance:** the full 25-order/~210-operation CP-SAT model
   does not always reach a proven-optimal (or even first-feasible) solution
@@ -286,4 +284,5 @@ call.
 
 ---
 
-Built as a technical assessment submission for Mirai Labs.
+A personal project exploring constraint-programming (CP-SAT) for real-world
+manufacturing scheduling and disruption replanning.

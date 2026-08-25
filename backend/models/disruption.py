@@ -1,4 +1,4 @@
-"""Pydantic models describing the five disruption types (Section 24)."""
+"""Pydantic models describing the five disruption types."""
 from __future__ import annotations
 
 from typing import Optional

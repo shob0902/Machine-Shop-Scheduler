@@ -5,7 +5,7 @@ import type {
 } from "../types";
 
 // Never hardcode localhost in production code - read from the environment
-// (Section 36). Falls back to localhost only for local development.
+//. Falls back to localhost only for local development.
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 export const api = axios.create({
@@ -27,7 +27,7 @@ function unwrap<T>(promise: Promise<{ data: ApiEnvelope<T> }>): Promise<T> {
 export const scheduleApi = {
   get: (strategy: Strategy = "cheapest") =>
     unwrap<ScheduleResult>(api.get(`/api/schedule`, { params: { strategy } })),
-  generate: (strategy: Strategy = "cheapest", timeLimitSeconds = 60, regenerateData = false) =>
+  generate: (strategy: Strategy = "cheapest", timeLimitSeconds = 30, regenerateData = false) =>
     unwrap<ScheduleResult>(api.post(`/api/schedule/generate`, {
       strategy, time_limit_seconds: timeLimitSeconds, regenerate_data: regenerateData,
     })),
@@ -82,6 +82,6 @@ export const disruptionApi = {
 
 export const strategyApi = {
   list: () => unwrap<Array<{ strategy: Strategy; description: string }>>(api.get(`/api/strategies`)),
-  compare: (timeLimitSeconds = 45) =>
+  compare: (timeLimitSeconds = 25) =>
     unwrap<StrategyComparisonData>(api.post(`/api/strategies/compare`, { time_limit_seconds: timeLimitSeconds })),
 };

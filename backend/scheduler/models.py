@@ -103,10 +103,10 @@ def restrict_machines_by_family(machine_ids: List[str], family: str) -> List[str
     (tooling/fixture proximity) rather than treating every machine of a type
     as fully interchangeable. Machine TYPES with <=2 members (Grinding,
     Inspection) are left unrestricted, since the scarcity there is already
-    the point (Section 7).
+    the point.
 
     This is also what keeps the CP-SAT model tractable: sequence-dependent
-    changeover (Section 6) requires a pairwise disjunctive constraint between
+    changeover requires a pairwise disjunctive constraint between
     every pair of candidate operations on the same machine, which is
     quadratic in the candidate-pool size. Letting every Turning operation
     compete for all 4 lathes made that pool (and solve time) blow up; capping
@@ -245,7 +245,7 @@ def build_solver_input(machines: List[dict], operators: List[dict], orders: List
             tasks.append(task)
             order_infos[order["order_id"]].task_ids.append(op["operation_id"])
 
-    # --- inject rework tasks (Section 14 / 24-D) ---
+    # --- inject rework tasks ---
     for idx, rw in enumerate(overlay.rework_events):
         order = next((o for o in orders if o["order_id"] == rw["order_id"]), None)
         if order is None:

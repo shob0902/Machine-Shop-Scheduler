@@ -1,5 +1,5 @@
 """
-Cost calculation helpers (Section 20).
+Cost calculation helpers.
 
 The core per-operation cost breakdown (operating / overtime / penalty /
 changeover) is computed directly from a solved schedule inside
@@ -7,7 +7,7 @@ scheduler/solver.py (`_decode_cost_breakdown`) because it needs the exact
 realized machine+operator assignment of every operation. This module adds
 the pieces that sit ON TOP of a schedule rather than inside it: formatting a
 breakdown for the frontend, and pricing the optional diesel-generator
-power-cut scenario (Section 15).
+power-cut scenario.
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ def with_percentages(cost_breakdown: dict) -> dict:
 def price_power_cut(operations: list, machine_infos_hourly_cost: dict, day_index: int, shift: int,
                      duration_minutes: int, use_generator: bool) -> dict:
     """
-    Section 15: a power cut can either be absorbed by losing the shift
+    a power cut can either be absorbed by losing the shift
     (operations in that window cannot run -> they become disruption-affected
     operations for the replanner to move) or by running a diesel generator at
     GENERATOR_COST_MULTIPLIER x the normal electricity-linked machine cost.

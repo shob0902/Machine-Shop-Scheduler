@@ -14,7 +14,7 @@ data fetching through a typed Axios client (`services/api.ts`). No global
 state library was needed at this scope.
 
 Pages (`pages/`): Dashboard, Schedule (Gantt), Orders, Machines,
-Disruptions, StrategyComparison, CostAnalysis — one per Section 29
+Disruptions, StrategyComparison, CostAnalysis — one per this
 requirement. `components/Gantt.tsx` is a hand-built CSS-positioned Gantt
 (machine rows x day/hour columns, colored by part family, click for
 detail) rather than a chart-library Gantt, since none of Recharts'
@@ -58,7 +58,7 @@ honestly-labeled fallback when CP-SAT cannot converge in time;
 ## Disruption engine
 
 `services/disruption_service.py` translates the five raw disruption
-payload shapes (Section 24) into `scheduler.models.Overlay`, drives
+payload shapes into `scheduler.models.Overlay`, drives
 `scheduler.replanner.replan`, and generates the owner-action
 recommendation. It is a service, not scattered across routes, so the same
 logic backs both the generic `/api/disruptions` endpoint and the five

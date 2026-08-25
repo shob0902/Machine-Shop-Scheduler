@@ -2,7 +2,7 @@
 
 This document explains how `backend/scheduler/` turns master data into a
 schedule with Google OR-Tools CP-SAT, and is deliberately specific about
-what is and isn't exactly optimized — Section 41 of the assignment
+what is and isn't exactly optimized — this of the project
 ("No fake results") applies to documentation as much as to numbers.
 
 ## 1. Time model
@@ -11,7 +11,7 @@ The horizon is 14 days, 2 shifts/day (06:00–14:00, 14:00–22:00), plus up to
 2 hours/day of overtime after shift 2 (22:00–24:00). The overnight window
 (00:00–06:00) is never modelled as workable time.
 
-**Bucket size: 30 minutes** (`config.BUCKET_MINUTES`). Section 17 of the
+**Bucket size: 30 minutes** (`config.BUCKET_MINUTES`). this of the
 assignment suggests 15 minutes as an example. 15 minutes was the initial
 choice; during development the resulting CP-SAT model (~211 operations,
 several interchangeable machines/operators per operation) took too long to
@@ -98,7 +98,7 @@ operation.
 
 ## 5. Two-phase changeover handling
 
-Section 6 requires the solver to actually consider sequence-dependent
+this requires the solver to actually consider sequence-dependent
 changeovers when deciding job order, not just record them in a table.
 
 The textbook way to get this out of CP-SAT is the classic disjunctive
@@ -150,7 +150,7 @@ parallel) and is a documented assumption, not a silent simplification.
 Every Turning operation being eligible on all 4 lathes (and similarly for
 milling/drilling) creates large, mostly-symmetric candidate pools per
 machine — which is exactly what makes the pairwise-changeover pattern in
-Section 5 expensive. `scheduler/models.py: restrict_machines_by_family`
+this expensive. `scheduler/models.py: restrict_machines_by_family`
 pre-qualifies each part family on a realistic 2-machine "home pool" per
 machine type with >2 members (Grinding and Inspection, with only 2
 machines each, are left unrestricted — that scarcity is the point).
@@ -183,15 +183,15 @@ would. The response's `solver_status` is set to
 `FEASIBLE_HEURISTIC_FALLBACK` in that case — **this is always reported
 honestly to the API and UI**, never disguised as `OPTIMAL`. Only if the
 heuristic also cannot place every operation does the API return a genuine
-"no feasible schedule" error (Section 33).
+"no feasible schedule" error.
 
 The heuristic fallback is strategy-aware (it prefers cheaper resources for
 Cheapest, less-loaded machines for Most Robust, earliest-finish for Most
 On-Time — see `greedy_construct`'s docstring) but is a simpler
 approximation than CP-SAT's exact optimization; when CP-SAT itself
 converges (smaller/typical replanning scenarios), the three strategies are
-rigorously differentiated by the actual objective function in Section 4.
+rigorously differentiated by the actual objective function in this.
 
-This trade-off is exactly why Section 17 says "avoid a model that becomes
+This trade-off is exactly why this says "avoid a model that becomes
 unnecessarily huge" — and why it is documented this thoroughly rather than
 quietly shipped.

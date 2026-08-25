@@ -1,4 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-bg: #E8EEF5;
+  --color-card: #E8EEF5;
+  --color-primary: #4F7CFF;
+  --color-primary-dark: #3D63D8;
+  --color-accent: #7657D9;
+  --color-ink: #263238;
+  --color-muted: #667085;
+  --color-light-shadow: #FFFFFF;
+  --color-dark-shadow: #C5CED9;
+  --color-success: #36B37E;
+  --color-warning: #F2A93B;
+  --color-error: #E85D75;
+  --color-info: #4F7CFF;
+  --font-sans: "Inter", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+}
 
 :root {
   color-scheme: light;
@@ -10,19 +28,154 @@ html, body, #root {
 }
 
 body {
-  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-  background-color: #f3f4f6;
-  color: #111827;
-  font-size: 16px;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Supervisor-first: comfortably large base type, generous tap targets */
 .app-shell {
   min-height: 100vh;
 }
 
 @layer components {
-  .input {
-    @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-base text-gray-900;
+  /* ---- Neumorphic surfaces ---- */
+  .neu-raised {
+    background: var(--color-bg);
+    border-radius: 22px;
+    box-shadow: 8px 8px 16px var(--color-dark-shadow), -8px -8px 16px var(--color-light-shadow);
   }
+  .neu-raised-sm {
+    background: var(--color-bg);
+    border-radius: 14px;
+    box-shadow: 4px 4px 10px var(--color-dark-shadow), -4px -4px 10px var(--color-light-shadow);
+  }
+  .neu-inset {
+    background: var(--color-bg);
+    border-radius: 14px;
+    box-shadow: inset 4px 4px 8px var(--color-dark-shadow), inset -4px -4px 8px var(--color-light-shadow);
+  }
+  .neu-inset-sm {
+    background: var(--color-bg);
+    border-radius: 10px;
+    box-shadow: inset 3px 3px 7px var(--color-dark-shadow), inset -3px -3px 7px var(--color-light-shadow);
+  }
+  .neu-flat {
+    background: var(--color-bg);
+    border-radius: 14px;
+  }
+
+  /* ---- Interactive elements ---- */
+  .neu-btn {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    border-radius: 14px;
+    box-shadow: 4px 4px 10px var(--color-dark-shadow), -4px -4px 10px var(--color-light-shadow);
+    transition: box-shadow 180ms ease, transform 180ms ease, color 180ms ease;
+  }
+  .neu-btn:hover { box-shadow: 5px 5px 12px var(--color-dark-shadow), -5px -5px 12px var(--color-light-shadow); }
+  .neu-btn:active { box-shadow: inset 3px 3px 7px var(--color-dark-shadow), inset -3px -3px 7px var(--color-light-shadow); }
+  .neu-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  .neu-btn-primary {
+    background: linear-gradient(145deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    border-radius: 14px;
+    box-shadow: 4px 4px 10px var(--color-dark-shadow), -2px -2px 8px rgba(255, 255, 255, 0.5);
+    transition: box-shadow 180ms ease, transform 180ms ease, filter 180ms ease;
+  }
+  .neu-btn-primary:hover { filter: brightness(1.05); box-shadow: 5px 5px 12px var(--color-dark-shadow), -2px -2px 8px rgba(255,255,255,0.5); }
+  .neu-btn-primary:active { box-shadow: inset 3px 3px 7px rgba(0,0,0,0.25), inset -2px -2px 6px rgba(255,255,255,0.15); }
+  .neu-btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  .neu-btn-danger {
+    background: linear-gradient(145deg, #ec6b81, var(--color-error));
+    color: white;
+    border-radius: 14px;
+    box-shadow: 4px 4px 10px var(--color-dark-shadow), -2px -2px 8px rgba(255, 255, 255, 0.5);
+    transition: box-shadow 180ms ease, filter 180ms ease;
+  }
+  .neu-btn-danger:hover { filter: brightness(1.05); }
+  .neu-btn-danger:active { box-shadow: inset 3px 3px 7px rgba(0,0,0,0.25), inset -2px -2px 6px rgba(255,255,255,0.15); }
+  .neu-btn-danger:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  .neu-input {
+    width: 100%;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    border: none;
+    border-radius: 14px;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+    box-shadow: inset 3px 3px 7px var(--color-dark-shadow), inset -3px -3px 7px var(--color-light-shadow);
+    transition: box-shadow 180ms ease;
+  }
+  .neu-input:focus {
+    outline: none;
+    box-shadow: inset 3px 3px 7px var(--color-dark-shadow), inset -3px -3px 7px var(--color-light-shadow), 0 0 0 2px var(--color-primary);
+  }
+
+  .neu-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .neu-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 14px;
+    padding: 0.7rem 1rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    transition: box-shadow 180ms ease, color 180ms ease, background 180ms ease;
+  }
+  .neu-nav-item:hover {
+    color: var(--color-ink);
+    box-shadow: 3px 3px 8px var(--color-dark-shadow), -3px -3px 8px var(--color-light-shadow);
+  }
+  .neu-nav-item-active {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    box-shadow: inset 3px 3px 7px var(--color-dark-shadow), inset -3px -3px 7px var(--color-light-shadow);
+  }
+
+  .input {
+    /* legacy alias kept so any un-migrated usage still renders sanely */
+    width: 100%;
+    border-radius: 14px;
+    background: var(--color-bg);
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    box-shadow: inset 3px 3px 7px var(--color-dark-shadow), inset -3px -3px 7px var(--color-light-shadow);
+  }
+}
+
+/* Skeleton shimmer for loading states */
+@keyframes neu-shimmer {
+  0% { opacity: 0.55; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.55; }
+}
+.neu-skeleton {
+  background: var(--color-bg);
+  border-radius: 14px;
+  box-shadow: inset 3px 3px 7px var(--color-dark-shadow), inset -3px -3px 7px var(--color-light-shadow);
+  animation: neu-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Slim custom scrollbar for horizontally-scrolling panels (Gantt) */
+.neu-scroll::-webkit-scrollbar { height: 10px; width: 10px; }
+.neu-scroll::-webkit-scrollbar-track { background: transparent; }
+.neu-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-dark-shadow);
+  border-radius: 999px;
 }

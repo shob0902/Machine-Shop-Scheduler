@@ -51,7 +51,7 @@
 
 <!-- COVER PAGE -->
 <div class="cover">
-  <div class="badge">MIRAI LABS TECHNICAL ASSESSMENT - ASSIGNMENT C</div>
+  <div class="badge">PROJECT REPORT</div>
   <h1>The Machine Shop Scheduler</h1>
   <h2>Sridhar Precision Works</h2>
   <div class="stack">
@@ -59,7 +59,7 @@
     Google OR-Tools CP-SAT &middot; SQLite &middot; Netlify + Render
   </div>
   <div class="meta">
-    <div><strong>Candidate:</strong> Shourya Shobhit</div>
+    <div><strong>Author:</strong> Shourya Shobhit</div>
     <div><strong>Date:</strong> 23 August 2026</div>
     <div><strong>Version:</strong> 1.0</div>
   </div>
@@ -70,7 +70,7 @@
 <h2>Table of Contents</h2>
 <ul class="toc-list">
   <li><span>1. Executive Summary</span></li>
-  <li><span>2. Assignment Understanding</span></li>
+  <li><span>2. Problem Understanding</span></li>
   <li><span>3. Problem Statement</span></li>
   <li><span>4. Why We Chose This Technology Stack</span></li>
   <li><span>5. System Architecture</span></li>
@@ -106,7 +106,7 @@ internally-consistent synthetic dataset for that shop, (2) builds a real
 2-week, machine-by-machine, shift-by-shift schedule using Google OR-Tools'
 CP-SAT constraint solver, (3) supports three genuinely different
 optimization strategies with a real comparison and a data-driven
-recommendation, and (4) &mdash; the assignment's stated priority &mdash;
+recommendation, and (4) &mdash; the top priority &mdash;
 replans that schedule when a disruption hits, freezing what has already
 happened and re-optimizing only the future, with a before/after comparison,
 a cost impact, and a concrete recommended action for the owner.</p>
@@ -114,29 +114,29 @@ a cost impact, and a concrete recommended action for the owner.</p>
 supervisor-facing frontend, deployable to Render and Netlify respectively,
 with 38 automated tests, full API documentation, and this report. Every
 number quoted in this document was produced by the running application
-&mdash; see Section 15 (Testing) and the screenshots throughout for how to
+&mdash; see "Testing" below and the screenshots throughout for how to
 verify that independently.</p>
 </div>
 
-<!-- 2. ASSIGNMENT UNDERSTANDING -->
+<!-- 2. PROBLEM UNDERSTANDING -->
 <div class="section">
-<h2>2. Assignment Understanding</h2>
-<p>The official assignment asks for: synthetic shop data generation (14
-machines, ~25 orders, 3-6 operations each); a real 2-week schedule built
-machine-by-machine and shift-by-shift; hard respect for machine
-capability, operator skill/availability, changeovers, maintenance, and
-material constraints; customer-tier-aware cost/priority handling; a
-disruption engine covering machine breakdown, operator absence, material
-delay, rework, and (optionally) power cuts, with genuine replanning and a
-before/after comparison; three distinct scheduling strategies with a
-comparison and recommendation; a supervisor-friendly, non-technical UI;
-and full documentation including this report.</p>
-<p><strong>Official requirements vs. our implementation choices:</strong>
-the assignment intentionally leaves shift timings, cost rates, penalty
-formulas, time granularity, and several other operational parameters
-unspecified. Every such value used here is called out explicitly as an
-assumption (Section 17) rather than presented as if it came from the
-assignment text.</p>
+<h2>2. Problem Understanding</h2>
+<p>The goal: synthetic shop data generation (14 machines, ~25 orders, 3-6
+operations each); a real 2-week schedule built machine-by-machine and
+shift-by-shift; hard respect for machine capability, operator
+skill/availability, changeovers, maintenance, and material constraints;
+customer-tier-aware cost/priority handling; a disruption engine covering
+machine breakdown, operator absence, material delay, rework, and
+(optionally) power cuts, with genuine replanning and a before/after
+comparison; three distinct scheduling strategies with a comparison and
+recommendation; a supervisor-friendly, non-technical UI; and full
+documentation including this report.</p>
+<p><strong>Scope vs. implementation choices:</strong>
+shift timings, cost rates, penalty formulas, time granularity, and several
+other operational parameters are intentionally left unspecified by the
+problem. Every such value used here is called out explicitly as an
+assumption (see "Assumptions" below) rather than presented as if it were a
+given constraint.</p>
 </div>
 
 <!-- 3. PROBLEM STATEMENT -->
@@ -164,9 +164,9 @@ Overtime            (1.75x rate, up to 2h/day)
   =
 A constrained combinatorial optimization problem</div>
 <p>Every "+" above is a real, enforced constraint or cost term in the
-CP-SAT model (Section 8), not a cosmetic data field. This is why the
+CP-SAT model, not a cosmetic data field. This is why the
 problem is genuinely NP-hard flexible-job-shop scheduling with
-sequence-dependent setup times &mdash; and why Section 8 spends as much
+sequence-dependent setup times &mdash; and why this spends as much
 space as it does on how that complexity is actually handled at this
 dataset's scale.</p>
 </div>
@@ -181,7 +181,7 @@ dataset's scale.</p>
 <tr><td>Tailwind CSS</td><td>Rapid, consistent utility-based styling for a large-text, supervisor-friendly UI.</td></tr>
 <tr><td>Flask</td><td>Lightweight REST layer around a Python-native optimization core; no unneeded ORM/admin overhead.</td></tr>
 <tr><td>Python</td><td>The language OR-Tools' most complete API targets, plus Pandas/Pydantic for data generation and validation.</td></tr>
-<tr><td>OR-Tools</td><td>Google's open-source constraint optimization suite &mdash; the assignment's required optimization engine.</td></tr>
+<tr><td>OR-Tools</td><td>Google's open-source constraint optimization suite &mdash; the optimization engine this problem calls for.</td></tr>
 <tr><td>CP-SAT</td><td>Purpose-built for discrete scheduling with disjunctive/reified constraints (interval variables, no-overlap) &mdash; a far better fit than a generic LP/MIP solver for this problem shape.</td></tr>
 <tr><td>SQLite</td><td>Zero-ops relational storage sized correctly for prototype-scale mutable state (active schedules, disruption log).</td></tr>
 <tr><td>Pandas</td><td>Data generation and aggregate analysis helper.</td></tr>
@@ -191,8 +191,8 @@ dataset's scale.</p>
 </table>
 <p>Alternatives (Postgres, Django, a JS-based solver) were not necessary
 at this scale and would have added operational overhead without changing
-what the assignment actually requires to be demonstrated &mdash; see
-Section 19 for where they'd matter in production.</p>
+what actually needs to be demonstrated here &mdash; see "Future
+Improvements" for where they'd matter in production.</p>
 </div>
 
 <!-- 5. SYSTEM ARCHITECTURE -->
@@ -225,7 +225,7 @@ Section 19 for where they'd matter in production.</p>
 <p>A `StrategyProvider` React Context holds the active strategy
 (persisted to `localStorage`) and a refresh counter pages watch after a
 generate/replan action; each page fetches its own typed data through
-`services/api.ts`. Seven pages cover every Section 29 requirement:
+`services/api.ts`. Seven pages cover every this requirement:
 Dashboard, Schedule (a hand-built CSS-positioned Gantt, not a chart
 library &mdash; none fit a resource-timeline view well), Orders, Machines,
 Disruptions (with the REPLAN button and live before/after comparison),
@@ -271,11 +271,7 @@ DISRUPTION ---triggers---&gt; SCHEDULE_RESULT (replan output)</div>
 <p>Full detail in <code>docs/scheduling-algorithm.md</code>; summary here.</p>
 <h3>Time model</h3>
 <p>14-day horizon, 2 shifts (06:00-14:00, 14:00-22:00) plus up to 2h/day
-overtime, in <strong>30-minute buckets</strong>. (Section 17 suggests 15
-minutes as an example; 30 was chosen after 15-minute buckets produced a
-CP-SAT model that took too long to find even a first feasible solution at
-this dataset's scale &mdash; see "Solver performance" below and in the
-scheduling-algorithm doc for the measured numbers behind that decision.)</p>
+overtime, in <strong>30-minute buckets</strong>.</p>
 <h3>Hard constraints</h3>
 <table>
 <tr><th>Constraint</th><th>Mechanism</th></tr>
@@ -295,7 +291,7 @@ robustness proxy (peak/grinding machine utilization) &mdash; see Section
 computed and reported exactly, but is not a term inside the CP-SAT
 objective itself &mdash; see the next subsection.</p>
 <h3>Sequence-dependent changeovers: a two-phase design</h3>
-<p>The assignment requires changeovers to genuinely affect scheduling, not
+<p>Changeovers need to genuinely affect scheduling, not
 sit in a decorative table. The textbook CP-SAT pattern for this &mdash;
 one boolean "does operation i run before j" per candidate pair on a given
 machine, reified with the exact changeover gap &mdash; is correct, and was
@@ -324,7 +320,7 @@ and the response's <code>solver_status</code> is honestly set to
 <code>FEASIBLE_HEURISTIC_FALLBACK</code> &mdash; never disguised as
 <code>OPTIMAL</code>. This is the single most important limitation of the
 current system at full scale and is documented, not hidden &mdash; see
-Section 18.</p>
+this.</p>
 </div>
 
 <!-- 9. REPLANNING ALGORITHM -->
@@ -351,9 +347,8 @@ Calculate impact + generate the owner-action recommendation</div>
 (machine, operator, start, end) &mdash; not simply excluded &mdash; so
 they still correctly occupy machine/operator capacity while the future is
 re-optimized around them. This is why the result is never "a completely
-new, unrelated schedule": the assignment is explicit that it must not be,
-and operationally a supervisor cannot act on a plan that discarded
-everything already in motion.</p>
+new, unrelated schedule" &mdash; operationally, a supervisor cannot act on
+a plan that discarded everything already in motion.</p>
 <p>The owner-action recommendation
 (<code>services/disruption_service.py: generate_owner_action</code>) is
 generated from the actual before/after comparison &mdash; it picks the
@@ -378,8 +373,8 @@ significantly more on overtime to hit dates.</p>
 and peak-grinding-utilization penalties. Trade-off: may not be the
 absolute cheapest or most on-time, in exchange for spare capacity that
 can absorb the next disruption without collapsing.</p>
-<p>See Section 16 (Trade-off Memo) for a real comparison table from a live
-run, and <code>docs/scheduling-algorithm.md</code> Section 4 for the exact
+<p>See "Trade-off Memo" below for a real comparison table from a live
+run, and <code>docs/scheduling-algorithm.md</code> for the exact
 objective weights.</p>
 </div>
 
@@ -400,7 +395,7 @@ objective weights.</p>
 </ul>
 <p>All five are computed post-solve, directly from the realized schedule
 (never from the CP-SAT objective's internal linear approximation of
-overtime &mdash; see Section 8) &mdash; so the number shown on the Cost
+overtime) &mdash; so the number shown on the Cost
 Analysis page is always the same number used to price a disruption.</p>
 </div>
 
@@ -424,7 +419,7 @@ needs attention. The UI is deliberately not an engineering dashboard:</p>
 <!-- 13. DISRUPTION SCENARIO -->
 <div class="section">
 <h2>13. Disruption Scenario</h2>
-<p>The official-style scenario &mdash; grinding machine down Tuesday 11 AM
+<p>The demo scenario &mdash; grinding machine down Tuesday 11 AM
 for 8+ hours, with a Tier-1 delivery at risk &mdash; run live against this
 application:</p>
 <div class="diagram">BEFORE            (schedule as generated)
@@ -433,7 +428,7 @@ DISRUPTION        POST /api/disruptions/breakdown
                    &#123; machine_id: GRIND-01, start_time: 2026-08-25T11:00:00,
                      duration_minutes: 480 &#125;
    &#8595;
-REPLAN            freeze + overlay + re-solve (Section 9)
+REPLAN            freeze + overlay + re-solve
    &#8595;
 AFTER             new schedule + before/after comparison
    &#8595;
@@ -442,7 +437,7 @@ COST IMPACT       Rs.6,136.31 in the captured run below</div>
 <div class="screenshot-cap">Actual captured screenshot: before/after comparison and owner-action recommendation for this exact scenario.</div>
 <p>Full walkthrough (what changed, what stayed frozen, which orders
 slipped, the exact owner-action text) is in
-<code>docs/DEFENSE_PREPARATION.md</code>.</p>
+<code>docs/design-decisions-qna.md</code>.</p>
 </div>
 
 <!-- 14. DEPLOYMENT -->
@@ -485,7 +480,7 @@ URL in source.</p>
 <h2>16. Trade-off Memo</h2>
 <p>Real output from a live <code>POST /api/strategies/compare</code> run
 (captured screenshot below). This run used the constructive-heuristic
-fallback for all three strategies (Section 8's "Solver performance"), so
+fallback for all three strategies, so
 treat the exact figures as illustrative of the trade-off shape rather than
 a proven-optimal benchmark.</p>
 <table>
@@ -513,12 +508,12 @@ artifact, explained honestly) is in
 <!-- 17. ASSUMPTIONS -->
 <div class="section">
 <h2>17. Assumptions</h2>
-<p>None of the following come from the official assignment text, which
-does not specify them; they are engineering assumptions made to build a
-working system, declared here rather than left implicit.</p>
+<p>None of the following are physically fixed by the problem; they are
+engineering assumptions made to build a working system, declared here
+rather than left implicit.</p>
 <div class="assumption">
 <strong>Shift timings:</strong> 06:00-14:00 / 14:00-22:00, plus up to 2h/day overtime after shift 2. No work 22:00/00:00-06:00.<br/>
-<strong>Time granularity:</strong> 30-minute buckets (see Section 8 for why 15 was tried first and changed).<br/>
+<strong>Time granularity:</strong> 30-minute buckets (see "Scheduling Algorithm" for why 15 was tried first and changed).<br/>
 <strong>Overtime multiplier:</strong> 1.75x machine+operator hourly rate, billed per whole operation.<br/>
 <strong>Generator premium:</strong> 3.0x electricity-linked machine cost.<br/>
 <strong>Penalty formula:</strong> <code>(tardiness_hours/24) &times; late_penalty_per_day</code>.<br/>
@@ -536,7 +531,7 @@ working system, declared here rather than left implicit.</p>
 <ul>
 <li>All data is synthetic; no real ERP/MES/IoT integration exists.</li>
 <li>SQLite is prototype-scale storage; a production deployment would need Postgres and a proper migration story.</li>
-<li><strong>Solver performance does not always reach a proven-optimal (or even first-feasible) CP-SAT solution for the full 25-order model within a practical time budget</strong> &mdash; measured and documented in Section 8, with an honest, labeled fallback rather than a silently-wrong or fabricated result.</li>
+<li><strong>Solver performance does not always reach a proven-optimal (or even first-feasible) CP-SAT solution for the full 25-order model within a practical time budget</strong> &mdash; measured and documented in this, with an honest, labeled fallback rather than a silently-wrong or fabricated result.</li>
 <li>The disruption/replanning path, and smaller schedules generally, reliably reach true CP-SAT optimality in seconds &mdash; the limitation above is specific to the full-scale "generate a fresh 2-week schedule" case.</li>
 <li>The Kannada/Tamil supervisor-language requirement is addressed only through UI simplicity (large text, color status, minimal jargon), not actual translation.</li>
 <li>No authentication, multi-user concurrency control, or audit logging.</li>

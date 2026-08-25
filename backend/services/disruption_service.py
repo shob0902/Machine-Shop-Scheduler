@@ -1,8 +1,8 @@
 """
-Translates the five raw disruption payload types (Section 24) into a
+Translates the five raw disruption payload types into a
 scheduler.models.Overlay, drives the replanner, persists the result, and
 generates the data-driven "what should the owner do right now" action
-(Section 45) - built from the actual before/after comparison, never a
+ - built from the actual before/after comparison, never a
 hardcoded sentence.
 """
 from __future__ import annotations
@@ -86,8 +86,7 @@ def apply_disruption(disruption_type: str, payload: dict, machines: list, operat
     elif "now_bucket" in payload:
         overlay.min_start_bucket = int(payload["now_bucket"])
     elif disruption_type == "machine_breakdown":
-        # "Now" is naturally the moment the breakdown starts (Section 27's
-        # "Tuesday 11 AM, grinding machine down" scenario) - everything
+        # "Now" is naturally the moment the breakdown starts - everything
         # scheduled to have already started by then stays frozen.
         overlay.min_start_bucket = datetime_to_bucket(_parse_dt(payload["start_time"]))
     elif disruption_type == "power_cut":
@@ -111,7 +110,7 @@ def apply_disruption(disruption_type: str, payload: dict, machines: list, operat
 
 
 def generate_owner_action(replan_result: dict, payload: dict, disruption_type: str) -> dict:
-    """Section 45: a concrete recommended phone call, generated from the
+    """a concrete recommended phone call, generated from the
     ACTUAL comparison metrics of this replan - not a canned sentence."""
     comparison = replan_result["comparison"]
     order_changes = [c for c in comparison["order_changes"] if c["moved"] or c["newly_late"]]

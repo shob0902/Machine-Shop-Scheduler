@@ -1,7 +1,7 @@
 """
 Central configuration and shop-calendar constants for the Machine Shop Scheduler.
 
-Every "magic number" that the official assignment does NOT pin down (shift
+Every "magic number" that the project spec does NOT pin down (shift
 timings, bucket granularity, cost rates, etc.) lives here, in one place, so it
 can be audited and is never duplicated/hardcoded inside business logic.
 See docs/trade-off-memo.md and pdf report section "Assumptions" for the
@@ -23,7 +23,7 @@ FLASK_ENV = os.environ.get("FLASK_ENV", "development")
 RANDOM_SEED = int(os.environ.get("DATA_SEED", "42"))
 
 # ---------------------------------------------------------------------------
-# Shop calendar (ASSUMPTION - not specified exactly by the assignment)
+# Shop calendar (ASSUMPTION - not specified exactly by the project)
 # ---------------------------------------------------------------------------
 SHIFT_DEFINITIONS = {
     1: {"label": "Shift 1", "start_hour": 6, "end_hour": 14},   # 06:00-14:00
@@ -33,7 +33,7 @@ SHIFT_HOURS = 8
 WORKING_HOURS_PER_DAY = 16  # 06:00 -> 22:00, both shifts, contiguous
 NON_WORKING_HOURS_PER_DAY = 24 - WORKING_HOURS_PER_DAY  # 22:00 -> 06:00 next day
 
-# Discrete time-bucket granularity used by the CP-SAT model (Section 17).
+# Discrete time-bucket granularity used by the CP-SAT model.
 # 15 minutes keeps the horizon at a computationally manageable 896 buckets
 # instead of 1344 (if we modelled the idle overnight hours) or ~20k (minutes).
 BUCKET_MINUTES = 30
@@ -41,7 +41,7 @@ BUCKETS_PER_HOUR = 60 // BUCKET_MINUTES
 BUCKETS_PER_SHIFT = SHIFT_HOURS * BUCKETS_PER_HOUR          # 32
 BUCKETS_PER_DAY = WORKING_HOURS_PER_DAY * BUCKETS_PER_HOUR  # 64
 
-# Planning horizon (Section 18: two-week schedule).
+# Planning horizon.
 HORIZON_DAYS = 14
 TOTAL_BUCKETS = HORIZON_DAYS * BUCKETS_PER_DAY  # 896
 
@@ -63,14 +63,14 @@ SCHEDULE_START_DT = datetime.combine(SCHEDULE_START_DATE, datetime.min.time()) +
 # Cost assumptions (ASSUMPTION - documented in pdf report, Section "Assumptions")
 # ---------------------------------------------------------------------------
 OVERTIME_COST_MULTIPLIER = 1.75      # applied on top of machine hourly_cost/operator rate
-GENERATOR_COST_MULTIPLIER = 3.0      # diesel generator vs grid electricity (Section 15)
-INSPECTION_FAIL_RATE_RANGE = (0.02, 0.05)  # 2-5% per official scenario
+GENERATOR_COST_MULTIPLIER = 3.0      # diesel generator vs grid electricity
+INSPECTION_FAIL_RATE_RANGE = (0.02, 0.05)  # 2-5% assumed inspection failure rate
 REWORK_TIME_FRACTION = 0.6           # rework takes ~60% of the original op time
 
 # Part families used to build the sequence-dependent changeover matrix.
 PART_FAMILIES = ["Shaft", "Flange", "Housing", "Bracket", "Gear", "Pin"]
 
-# Changeover minutes (Section 6): ~20 min within-family, up to 3h cross-family.
+# Changeover minutes: ~20 min within-family, up to 3h cross-family.
 CHANGEOVER_SAME_FAMILY_MIN = 15
 CHANGEOVER_SAME_FAMILY_MAX = 25
 CHANGEOVER_DIFFERENT_FAMILY_MIN = 45

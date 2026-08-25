@@ -1,4 +1,4 @@
-"""Supervisor dashboard aggregation (Section 29 - Dashboard page)."""
+"""Supervisor dashboard aggregation."""
 from __future__ import annotations
 
 from datetime import datetime

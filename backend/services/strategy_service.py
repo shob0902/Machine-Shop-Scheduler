@@ -1,10 +1,12 @@
 """
-Runs all three scheduling strategies (Section 21), builds the comparison
-table (Section 22), and generates a recommendation (Section 23) from the
+Runs all three scheduling strategies, builds the comparison
+table, and generates a recommendation from the
 metrics those solves actually produced - never a hardcoded winner.
 """
 from __future__ import annotations
 
+import os
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 from scheduler.solver import solve_schedule
@@ -17,13 +19,26 @@ STRATEGY_LABELS = {
 }
 
 
-def run_all_strategies(machines, operators, orders, changeovers, time_limit_seconds: float = 45.0) -> list[dict]:
-    results = []
-    for strategy in STRATEGIES:
-        result = solve_schedule(machines, operators, orders, changeovers, strategy=strategy,
-                                 time_limit_seconds=time_limit_seconds)
-        results.append(result)
-    return results
+def run_all_strategies(machines, operators, orders, changeovers, time_limit_seconds: float = 25.0) -> list[dict]:
+    """
+    The three strategies are fully independent solves over the same input
+    data, so they run concurrently instead of one-after-another - this is
+    what makes the Strategy Comparison page take ~1x a single solve's wall
+    time instead of 3x. CP-SAT's own C++ Solve() call releases the GIL, and
+    each solve's internal `num_search_workers` is trimmed here (from the
+    single-solve default of 8) so three concurrent solves don't oversubscribe
+    the machine's cores.
+    """
+    workers_per_solve = max(2, min(8, (os.cpu_count() or 8) // len(STRATEGIES)))
+    with ThreadPoolExecutor(max_workers=len(STRATEGIES)) as pool:
+        futures = {
+            strategy: pool.submit(
+                solve_schedule, machines, operators, orders, changeovers,
+                strategy=strategy, time_limit_seconds=time_limit_seconds, num_workers=workers_per_solve,
+            )
+            for strategy in STRATEGIES
+        }
+        return [futures[strategy].result() for strategy in STRATEGIES]
 
 
 def build_comparison_row(result: dict) -> dict:
@@ -85,7 +100,7 @@ def build_recommendation(comparison: list[dict]) -> dict:
     }
 
 
-def compare_strategies(machines, operators, orders, changeovers, time_limit_seconds: float = 45.0) -> dict:
+def compare_strategies(machines, operators, orders, changeovers, time_limit_seconds: float = 25.0) -> dict:
     results = run_all_strategies(machines, operators, orders, changeovers, time_limit_seconds)
     comparison = [build_comparison_row(r) for r in results]
     recommendation = build_recommendation(comparison)

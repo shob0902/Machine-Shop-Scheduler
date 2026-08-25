@@ -11,7 +11,7 @@ docstring for the full rationale):
     AddNoOverlap capacity constraints.
   Phase 2 (_finalize_with_changeover, always run) replays those assignments
     in the relative order Phase 1 produced and recomputes exact start/end
-    times so every sequence-dependent changeover gap (Section 6), machine
+    times so every sequence-dependent changeover gap, machine
     maintenance window, and operator shift boundary is genuinely respected
     in the schedule actually returned to the API - changeover is a real,
     enforced part of the final output, not a decorative table.
@@ -37,7 +37,7 @@ AT_RISK_SLACK_BUCKETS = BUCKETS_PER_DAY  # < 1 day of slack before due date => A
 class SchedulingError(Exception):
     """Raised whenever OR-Tools cannot produce a feasible schedule, or the
     request itself is invalid. Always carries a human-readable suggestion,
-    per Section 33 ("Error Handling")."""
+    per this ("Error Handling")."""
     def __init__(self, message: str, suggestion: Optional[str] = None, details: Optional[dict] = None):
         super().__init__(message)
         self.message = message

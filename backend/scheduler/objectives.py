@@ -1,6 +1,6 @@
 """
-Soft objectives (Section 16 "Optimization objectives") and the three
-scheduling strategies (Section 21).
+Soft objectives and the three
+scheduling strategies.
 
 All strategies share the same hard-constrained feasible region built by
 scheduler/constraints.py; they differ only in what linear combination of

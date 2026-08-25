@@ -33,7 +33,7 @@ def generate_schedule():
     strategy = body.get("strategy", "cheapest")
     if strategy not in STRATEGIES:
         return validation_error(f"Unknown strategy '{strategy}'.", {"valid_strategies": list(STRATEGIES)})
-    time_limit = float(body.get("time_limit_seconds", 60.0))
+    time_limit = float(body.get("time_limit_seconds", 30.0))
     regenerate_data = bool(body.get("regenerate_data", False))
 
     if regenerate_data:

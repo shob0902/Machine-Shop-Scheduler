@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 
 class MaintenanceWindow(BaseModel):
-    """A planned maintenance window for one machine (Section 12)."""
+    """A planned maintenance window for one machine."""
     machine_id: str
     day_index: int = Field(..., description="0-based day offset from schedule start")
     start_hour: float = Field(..., description="Hour of day the maintenance starts (0-24)")
@@ -15,7 +15,7 @@ class MaintenanceWindow(BaseModel):
 
 
 class Breakdown(BaseModel):
-    """Historical breakdown record used for reliability stats (Section 13)."""
+    """Historical breakdown record used for reliability stats."""
     breakdown_id: str
     machine_id: str
     start_time: str  # ISO datetime, historical (before the planning horizon)

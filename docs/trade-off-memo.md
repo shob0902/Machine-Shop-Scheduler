@@ -93,6 +93,6 @@ cheapest_row["strategy"]`.
 | Planning horizon | 14 days | `config.py: HORIZON_DAYS` |
 | Max single-operation duration | ~7.5h (else batch-split) | `config.py: MAX_SINGLE_OPERATION_BUCKETS` |
 
-None of these come from the official assignment document, which does not
+None of these come from the project spec document, which does not
 specify them; they are engineering assumptions made to build a working,
 realistic system, and are declared as such everywhere they are used.

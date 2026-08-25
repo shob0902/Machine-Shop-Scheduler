@@ -23,40 +23,42 @@ export default function Machines() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-3xl font-bold text-gray-900">Machines</h1>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {machines.map((m) => (
-          <div key={m.machine_id} className="rounded-2xl border border-gray-200 bg-white p-5">
-            <div className="mb-2 flex items-start justify-between">
-              <div>
-                <p className="text-lg font-bold text-gray-900">{m.machine_name}</p>
-                <p className="text-sm text-gray-500">{m.machine_id} - {m.machine_type}</p>
+        {machines.map((m) => {
+          const util = m.utilization?.utilization_pct ?? 0;
+          return (
+            <div key={m.machine_id} className="neu-raised p-5">
+              <div className="mb-3 flex items-start justify-between">
+                <div>
+                  <p className="text-base font-bold text-ink">{m.machine_name}</p>
+                  <p className="text-xs text-muted">{m.machine_id} &middot; {m.machine_type}</p>
+                </div>
+                <span className={`neu-chip ${m.status === "down" ? "bg-ink text-white" : "bg-success/15 text-success"}`}>
+                  {m.status === "down" ? "DOWN" : "OK"}
+                </span>
               </div>
-              <span className={`rounded-full px-2 py-1 text-xs font-semibold ${m.status === "down" ? "bg-black text-white" : "bg-green-100 text-green-800"}`}>
-                {m.status === "down" ? "DOWN" : "OK"}
-              </span>
+              <div className="mb-4">
+                <div className="mb-1.5 flex justify-between text-xs text-muted">
+                  <span>Utilization</span>
+                  <span className="font-semibold text-ink">{util}%</span>
+                </div>
+                <div className="neu-inset-sm h-3 w-full p-0.5">
+                  <div
+                    className={`h-full rounded-full transition-all ${util > 85 ? "bg-error" : "bg-primary"}`}
+                    style={{ width: `${Math.min(100, util)}%` }}
+                  />
+                </div>
+              </div>
+              <dl className="space-y-1.5 text-sm">
+                <div className="flex justify-between"><dt className="text-muted">Current job</dt><dd className="font-medium text-ink">{m.current_operation ? m.current_operation.order_id : "idle"}</dd></div>
+                <div className="flex justify-between"><dt className="text-muted">Next job</dt><dd className="font-medium text-ink">{m.next_operation ? m.next_operation.order_id : "-"}</dd></div>
+                <div className="flex justify-between"><dt className="text-muted">Breakdowns (history)</dt><dd className="font-medium text-ink">{m.reliability.breakdown_count}</dd></div>
+                <div className="flex justify-between"><dt className="text-muted">MTBF</dt><dd className="font-medium text-ink">{m.reliability.mtbf_hours ? `${m.reliability.mtbf_hours}h` : "-"}</dd></div>
+                <div className="flex justify-between"><dt className="text-muted">Maintenance windows</dt><dd className="font-medium text-ink">{m.maintenance_windows.length}</dd></div>
+              </dl>
             </div>
-            <div className="mb-3">
-              <div className="mb-1 flex justify-between text-xs text-gray-500">
-                <span>Utilization</span>
-                <span>{m.utilization?.utilization_pct ?? 0}%</span>
-              </div>
-              <div className="h-2 w-full rounded-full bg-gray-100">
-                <div
-                  className={`h-2 rounded-full ${(m.utilization?.utilization_pct ?? 0) > 85 ? "bg-red-500" : "bg-blue-500"}`}
-                  style={{ width: `${Math.min(100, m.utilization?.utilization_pct ?? 0)}%` }}
-                />
-              </div>
-            </div>
-            <dl className="space-y-1 text-sm">
-              <div className="flex justify-between"><dt className="text-gray-500">Current job</dt><dd>{m.current_operation ? m.current_operation.order_id : "idle"}</dd></div>
-              <div className="flex justify-between"><dt className="text-gray-500">Next job</dt><dd>{m.next_operation ? m.next_operation.order_id : "-"}</dd></div>
-              <div className="flex justify-between"><dt className="text-gray-500">Breakdowns (history)</dt><dd>{m.reliability.breakdown_count}</dd></div>
-              <div className="flex justify-between"><dt className="text-gray-500">MTBF</dt><dd>{m.reliability.mtbf_hours ? `${m.reliability.mtbf_hours}h` : "-"}</dd></div>
-              <div className="flex justify-between"><dt className="text-gray-500">Maintenance windows</dt><dd>{m.maintenance_windows.length}</dd></div>
-            </dl>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

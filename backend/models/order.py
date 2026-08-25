@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 
 class Operation(BaseModel):
-    """One step in an order's routing (Section 9), e.g. Turning -> Milling -> ..."""
+    """One step in an order's routing, e.g. Turning -> Milling -> ..."""
     operation_id: str
     order_id: str
     sequence: int

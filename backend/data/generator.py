@@ -34,7 +34,7 @@ from config import (  # noqa: E402
 rng = random.Random(RANDOM_SEED)
 
 # ---------------------------------------------------------------------------
-# 1. MACHINES  (Section 5) - exactly 14
+# 1. MACHINES - exactly 14
 # ---------------------------------------------------------------------------
 MACHINE_BLUEPRINT = [
     # (id, name, type, capabilities, base_hourly_cost, base_overtime_cost)
@@ -91,7 +91,7 @@ def build_machines() -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# 2. CHANGEOVER MATRIX (Section 6)
+# 2. CHANGEOVER MATRIX
 # ---------------------------------------------------------------------------
 def build_changeover_matrix() -> dict:
     matrix = {}
@@ -107,7 +107,7 @@ def build_changeover_matrix() -> dict:
 
 
 # ---------------------------------------------------------------------------
-# 3. OPERATORS (Section 7) + SHIFT ROSTER (Section 8)
+# 3. OPERATORS + SHIFT ROSTER
 # ---------------------------------------------------------------------------
 FIRST_NAMES = [
     "Ravi", "Suresh", "Manoj", "Karthik", "Vijay", "Anand", "Prakash", "Ganesh",
@@ -232,7 +232,7 @@ def build_operators(machines: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# 4. BREAKDOWN HISTORY (Section 13) - historical, BEFORE the planning horizon
+# 4. BREAKDOWN HISTORY - historical, BEFORE the planning horizon
 # ---------------------------------------------------------------------------
 FAILURE_TYPES = ["Spindle overheat", "Coolant leak", "Tool breakage", "Electrical fault",
                   "Hydraulic failure", "Sensor malfunction", "Belt slippage", "Bearing wear"]
@@ -268,7 +268,7 @@ def build_breakdowns(machines: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# 5. ORDERS (Section 9-11) - ~25 orders, 3-6 operations each
+# 5. ORDERS - ~25 orders, 3-6 operations each
 # ---------------------------------------------------------------------------
 CUSTOMERS = [
     ("Apex AutoDrive Pvt Ltd", "Tier-1"),      # dominant customer, JIT delivery
@@ -375,7 +375,7 @@ def build_orders(num_orders: int = 25) -> list[dict]:
         release_date = SCHEDULE_START_DATE + timedelta(days=release_offset)
 
         # Material availability: most orders have material on hand at release;
-        # a handful are genuinely constrained (Section 11).
+        # a handful are genuinely constrained.
         if rng.random() < 0.22:
             material_offset = release_offset + rng.randint(1, 4)
         else:

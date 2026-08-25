@@ -1,4 +1,4 @@
-# Defense Preparation
+# Design Decisions Q&A
 
 ## 20 likely questions and strong answers
 
@@ -31,7 +31,7 @@ page), a mature ecosystem (Recharts, React Router), and it's the
 explicitly requested stack.
 
 **5. Why SQLite?**
-Prototype scale (Section 18 says "SQLite intended for prototype scale"),
+Prototype scale,
 zero operational overhead (no separate DB server to deploy alongside
 Render's free tier), and the only things that actually need to persist
 across requests here (active schedule per strategy, disruption log) are
@@ -78,8 +78,8 @@ price the difference.
 Because a shop floor can't act on that - operators already mid-job can't
 be told their assignment changed, and a from-scratch replan would move
 completed work's records for no reason. Freezing what already happened
-and re-optimizing only the future is both the assignment's explicit
-requirement (Section 25) and the only operationally sane behavior.
+and re-optimizing only the future is both the project's explicit
+requirement and the only operationally sane behavior.
 
 **12. How do you calculate late penalties?**
 `tardiness_hours / 24 x order.late_penalty_per_day`, computed from the
@@ -103,8 +103,7 @@ operationally, not just as a label - see scheduler/objectives.py.
 
 **15. What happens if no feasible schedule exists?**
 `SchedulingError` is raised with a specific message and a suggestion
-(Section 33's exact JSON shape:
-`{success, error, suggestion, details}`), returned as HTTP 422 by every
+, returned as HTTP 422 by every
 route. The system tries hard not to say this falsely - see question 17.
 
 **16. How would this scale to 1,000 orders?**
@@ -125,8 +124,7 @@ circuit-constraint changeover model from Q16 once there's time budget to
 build and validate it properly.
 
 **18. Why didn't you use an LLM?**
-The assignment explicitly forbids it for scheduling decisions, and
-correctly so - an LLM cannot guarantee hard-constraint satisfaction
+Deliberately avoided for scheduling decisions - an LLM cannot guarantee hard-constraint satisfaction
 (no double-booking a machine, no violating precedence) the way a
 constraint solver can prove it. Every schedule this system returns is
 either CP-SAT-proven feasible or built by a deterministic constructive
@@ -150,7 +148,7 @@ is free) or later in the horizon. The `owner_action` recommendation would
 surface whichever customer order is most affected (weighted by tier and
 how late it slipped) and the real cost of holding vs. moving that date.
 
-## Walkthrough: the official grinding-machine scenario
+## Walkthrough: the grinding-machine breakdown scenario
 
 ```
 Tuesday 11 AM: GRIND-01 down, 8+ hours
@@ -160,7 +158,7 @@ Tier-1 delivery: Thursday 6 AM
 
 Run live: `docs/screenshots/disruptions_after_replan.png` is the actual
 captured output of this exact scenario (see
-disruption-replanning.md "The official-style demo scenario" for the
+disruption-replanning.md "Demo scenario walkthrough" for the
 request body).
 
 - **What changed?** GRIND-01 became unavailable for the breakdown window;

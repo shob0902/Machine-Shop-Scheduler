@@ -31,7 +31,7 @@ def test_machine_breakdown_replan_preserves_started_work(small_master_data, base
     for op in result["operations"]:
         if op["status"] == "frozen":
             # Frozen means "already started by now" (completed OR in
-            # progress) - Section 25 preserves in-progress work too, so its
+            # progress) - this preserves in-progress work too, so its
             # end_bucket may fall after now_bucket.
             assert op["start_bucket"] <= now_bucket
     # Nothing should be scheduled on the broken machine inside the blocked window.

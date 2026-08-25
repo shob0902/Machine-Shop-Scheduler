@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: mirai-machine-shop-backend
+    name: machine-shop-scheduler-backend
     runtime: python
     plan: free
     rootDir: backend

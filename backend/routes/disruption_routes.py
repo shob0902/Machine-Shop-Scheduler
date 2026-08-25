@@ -27,7 +27,7 @@ def list_disruptions():
 
 
 def _validate_references(disruption_type: str, payload: dict, machines: list, operators: list, orders: list):
-    """Section 33: an invalid machine/operator/order ID must produce a
+    """an invalid machine/operator/order ID must produce a
     clear validation error, not be silently ignored or crash the solve."""
     machine_ids = {m["machine_id"] for m in machines}
     operator_ids = {o["operator_id"] for o in operators}
@@ -85,13 +85,13 @@ def create_disruption():
     strategy = body.get("strategy", "cheapest")
     if disruption_type not in REQUIRED_FIELDS:
         return validation_error(f"'disruption_type' must be one of {list(REQUIRED_FIELDS)}.")
-    return _apply(disruption_type, payload, strategy, float(body.get("time_limit_seconds", 45.0)))
+    return _apply(disruption_type, payload, strategy, float(body.get("time_limit_seconds", 30.0)))
 
 
 def _typed_endpoint(disruption_type: str):
     body = request.get_json(silent=True) or {}
     strategy = body.pop("strategy", "cheapest")
-    time_limit = float(body.pop("time_limit_seconds", 45.0))
+    time_limit = float(body.pop("time_limit_seconds", 30.0))
     return _apply(disruption_type, body, strategy, time_limit)
 
 

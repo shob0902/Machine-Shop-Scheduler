@@ -30,18 +30,16 @@ export default function Schedule() {
 
   return (
     <div className="space-y-4">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">Two-Week Schedule</h1>
-        <p className="text-gray-500">
-          Machine-by-machine, shift-by-shift. {schedule.operations.length} operations across 14 machines.
-          Solver: {schedule.solver_status} ({schedule.solver_wall_time_seconds}s)
+      <div className="neu-raised-sm flex flex-wrap items-center justify-between gap-3 px-5 py-4">
+        <p className="text-sm text-muted">
+          {schedule.operations.length} operations across 14 machines &middot; Solver: {schedule.solver_status} ({schedule.solver_wall_time_seconds}s)
         </p>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="neu-inset neu-scroll flex items-center gap-2 overflow-x-auto p-2">
         <button
           onClick={() => setDayFilter("all")}
-          className={`rounded-full px-3 py-1 text-sm font-medium ${dayFilter === "all" ? "bg-blue-600 text-white" : "bg-white border border-gray-300 text-gray-700"}`}
+          className={`shrink-0 rounded-xl px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors ${dayFilter === "all" ? "neu-btn-primary" : "text-muted hover:text-ink"}`}
         >
           All days
         </button>
@@ -49,7 +47,7 @@ export default function Schedule() {
           <button
             key={d}
             onClick={() => setDayFilter(d)}
-            className={`rounded-full px-3 py-1 text-sm font-medium ${dayFilter === d ? "bg-blue-600 text-white" : "bg-white border border-gray-300 text-gray-700"}`}
+            className={`shrink-0 rounded-xl px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors ${dayFilter === d ? "neu-btn-primary" : "text-muted hover:text-ink"}`}
           >
             Day {d + 1}
           </button>

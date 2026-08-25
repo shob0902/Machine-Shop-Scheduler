@@ -1,5 +1,5 @@
 """
-Disruption replanning engine (Section 24-26 - "the heart of the assignment").
+Disruption replanning engine.
 
 Given the schedule currently on file and a disruption, this module:
   1. Freezes completed and in-progress operations (unless the disruption
@@ -14,7 +14,7 @@ Given the schedule currently on file and a disruption, this module:
      passed back in as a hard-fixed assignment, so the optimizer can only
      move what has not happened yet.
   4. Diffs the old and new schedules operation-by-operation and order-by-
-     order, and prices the difference (Section 20/26 - disruption cost).
+     order, and prices the difference.
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ from scheduler.solver import solve_schedule, SchedulingError
 def _is_disrupted(op: dict, overlay: Overlay) -> bool:
     """True if an in-progress operation is caught by the new disruption and
     must be un-frozen (its remaining/actual progress is not modeled at
-    sub-operation granularity - Section 25's "preserve where possible" is
+    sub-operation granularity - this "preserve where possible" is
     honored for every operation the disruption does NOT directly hit)."""
     for (bs, be) in overlay.extra_blocked_ranges.get(op["machine_id"], []):
         if op["start_bucket"] < be and bs < op["end_bucket"]:
